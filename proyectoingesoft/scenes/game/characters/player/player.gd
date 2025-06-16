@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Ésta función se llama cada frame de física, es ideal para indicar movimiento ya que no depende del framerate del juego en un PC en específico
+	# Para tratar los inputs del teclado, puedes utilizar los InputEvents que configuré (Proyecto -> Configuración del proyecto -> Mapa de entrada)
 	# Un buen recurso para entender ésta función es https://www.reddit.com/r/godot/comments/bhptsm/process_physics_process_and_physics_frames/
 	pass
 	
