@@ -1,0 +1,9 @@
+~ start
+Emiliano: Hola Emiliano del futuro
+Emiliano: Recuerdas cual es la señal que se emite con cada letra?
+- Si
+	Emiliano: Perfecto! => END
+- No
+	Emiliano: Se llama [pulse][color=RED]spoke
+	Emiliano: La puedes encontrar en[wave][color=RED] dialogue_label.gd 
+=> END
