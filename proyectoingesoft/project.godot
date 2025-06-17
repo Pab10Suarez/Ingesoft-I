@@ -19,10 +19,11 @@ config/icon="res://assets/audio/icon.svg"
 
 DataBaseManager="*res://autoloads/data_base_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SoundManager="*res://autoloads/sound_manager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/gdLinter/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 

@@ -174,3 +174,16 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+
+func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	#if not letter in [" ", "."]:
+	if letter.to_lower() in ["a", "e", "i", "o", "u", "y"]:
+		$TalkSound.pitch_scale = SoundManager.get_pitch_for_vowel_locution(letter)
+		$TalkSound.play()
+	elif letter in ["?", "!"]:
+		$TalkSound.pitch_scale = SoundManager.get_pitch_for_entonation_locution(letter, $TalkSound.pitch_scale)
+		$TalkSound.play()
+	elif letter == ".":
+		$TalkSound.pitch_scale = 1
+		$TalkSound.volume_db = 0
