@@ -21,6 +21,11 @@ DataBaseManager="*res://autoloads/data_base_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SoundManager="*res://autoloads/sound_manager.gd"
 
+[dialogue_manager]
+
+editor/advanced/custom_test_scene_path="res://scenes/_debug/test_dialogue.tscn"
+runtime/balloon_path="res://scenes/menu/balloon.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")

@@ -26,5 +26,8 @@ func get_pitch_for_vowel_locution(vowel : String) -> float:
 # TODO terminar la detección de entonación
 func set_pitch_for_entonation_locution(entonation : String, stream_player : AudioStreamPlayer2D) -> void:
 	match entonation:
-		"!":
-			stream_player.volume_db += 1
+		"¡":
+			stream_player.volume_db += 5
+		"?":
+			# No funciona realmente así
+			stream_player.pitch_scale += 0.5

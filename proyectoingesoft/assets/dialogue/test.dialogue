@@ -5,5 +5,6 @@ Emiliano: Recuerdas cual es la señal que se emite con cada letra?
 	Emiliano: Perfecto! => END
 - No
 	Emiliano: Se llama [pulse][color=RED]spoke
+	Emiliano: ¡Tienes que estar pendiente!
 	Emiliano: La puedes encontrar en[wave][color=RED] dialogue_label.gd 
 => END
