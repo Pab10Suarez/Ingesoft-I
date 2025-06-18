@@ -1,10 +1,13 @@
 ~ start
-Emiliano: Hola Emiliano del futuro
-Emiliano: Recuerdas cual es la señal que se emite con cada letra?
+Emiliano: [#mood=neutral] Hola Emiliano del futuro.
+Emiliano: [#mood=angry] Hola Emiliano.
+Emiliano: Recuerdas cual es la señal que se emite con cada letra?.
 - Si
-	Emiliano: Perfecto! => END
+	Gerardo: Menos mal por que yo no me acordaba.
+	Emiliano: Perfecto!. => END
 - No
-	Emiliano: Se llama [pulse][color=RED]spoke
+	Emiliano: Se llama [pulse][color=RED]spoke.
+	Gerardo: Ahh menos maaal, listo listo.
 	Emiliano: ¡Tienes que estar pendiente!
-	Emiliano: La puedes encontrar en[wave][color=RED] dialogue_label.gd 
+	Emiliano: La puedes encontrar en[wave][color=RED] dialogue_label.gd.
 => END

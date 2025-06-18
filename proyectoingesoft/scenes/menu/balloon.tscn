@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="Texture2D" uid="uid://c3gx8n0xpmhvd" path="res://assets/audio/icon.svg" id="3_hmgs1"]
-[ext_resource type="AudioStream" uid="uid://cqkn0y3lya8po" path="res://assets/audio/PH_BEEP (Beep sound effect) [TubeRipper.cc].ogg" id="4_nlsx6"]
+[ext_resource type="AudioStream" uid="uid://da1hkgfsyutlp" path="res://assets/audio/dialogue_voices/voice_gerardo.ogg" id="5_hmgs1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -102,6 +102,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Portrait" type="TextureRect" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -152,8 +153,9 @@ response_template = NodePath("ResponseExample")
 layout_mode = 2
 text = "Response example"
 
-[node name="TalkSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_nlsx6")
+[node name="DialogueLocution" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_hmgs1")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]

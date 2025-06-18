@@ -51,6 +51,12 @@ var mutation_cooldown: Timer = Timer.new()
 ## The menu of responses
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
+## Retrato
+@onready var portrait : TextureRect = $%Portrait
+
+## AudioPlayer
+@onready var dialogue_locution : AudioStreamPlayer2D = %DialogueLocution
+
 
 func _ready() -> void:
 	balloon.hide()
@@ -97,6 +103,18 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	# Inicia fix propio 
+	var tag : String = dialogue_line.get_tag_value("mood")
+	if tag == "":
+		tag = "neutral"
+	var portrait_path : String = "res://assets/sprites/characters/talking_heads/%s_%s.png" % [dialogue_line.character.to_lower(), tag]
+	
+	if FileAccess.file_exists(portrait_path):
+		portrait.texture = load(portrait_path)
+	else:
+		portrait.texture = null
+	
+	# Termina fix propio
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -177,13 +195,15 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
-	#if not letter in [" ", "."]:
+	# TODO arreglar ésto, no me gusta
+	if letter_index == 1 or dialogue_line.text[letter_index - 1] == " ":
+		print(letter_index, " y ", dialogue_line.text[letter_index - 1])
+		dialogue_locution.play()
+		
 	if letter.to_lower() in ["a", "e", "i", "o", "u", "y"]:
-		$TalkSound.pitch_scale = SoundManager.get_pitch_for_vowel_locution(letter)
-		$TalkSound.play()
+		dialogue_locution.pitch_scale = SoundManager.get_pitch_for_vowel_locution(letter)
 	elif letter in ["?", "¡"]:
-		SoundManager.set_pitch_for_entonation_locution(letter, $TalkSound)
-		$TalkSound.play()
-	elif letter in [".", ",", ";", "!"]:
-		$TalkSound.pitch_scale = 1
-		$TalkSound.volume_db = 0
+		SoundManager.set_pitch_for_entonation_locution(letter, dialogue_locution)
+	elif letter in [".", ",", ";", "!"] and not letter_index == dialogue_line.text.length() - 1:
+		dialogue_locution.pitch_scale = 1
+		dialogue_locution.volume_db = 0
