@@ -1,14 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://dei2ljm6liirt"]
 
-[ext_resource type="Script" uid="uid://c1kwt1q1f5nt5" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://u8lf5hmdnsal" path="res://scenes/game/characters/player/player.gd" id="1_52x1p"]
 [ext_resource type="Texture2D" uid="uid://cv08a0em2lw5n" path="res://scenes/game/characters/icon5.svg" id="2_52xlp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(299, 41)
-script = ExtResource("1_4flbx")
-metadata/_edit_group_ = true
+script = ExtResource("1_52x1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_onrkg")

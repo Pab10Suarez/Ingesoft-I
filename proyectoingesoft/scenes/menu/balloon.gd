@@ -100,9 +100,16 @@ func apply_dialogue_line() -> void:
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
-
 	character_label.visible = not dialogue_line.character.is_empty()
+	# Fix propio
+	var voice_path : String = "res://assets/audio/dialogue_voices/voice_%s.ogg" % dialogue_line.character.to_lower()
+	print(voice_path)
+	if character_label.visible:
+		dialogue_locution.stream = load(voice_path)
+	# Termina fix propio
+	
 	character_label.text = tr(dialogue_line.character, "dialogue")
+	
 	# Inicia fix propio 
 	var tag : String = dialogue_line.get_tag_value("mood")
 	if tag == "":
@@ -195,15 +202,10 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
-	# TODO arreglar ésto, no me gusta
+	
 	if letter_index == 1 or dialogue_line.text[letter_index - 1] == " ":
-		print(letter_index, " y ", dialogue_line.text[letter_index - 1])
 		dialogue_locution.play()
 		
 	if letter.to_lower() in ["a", "e", "i", "o", "u", "y"]:
-		dialogue_locution.pitch_scale = SoundManager.get_pitch_for_vowel_locution(letter)
-	elif letter in ["?", "¡"]:
-		SoundManager.set_pitch_for_entonation_locution(letter, dialogue_locution)
-	elif letter in [".", ",", ";", "!"] and not letter_index == dialogue_line.text.length() - 1:
-		dialogue_locution.pitch_scale = 1
-		dialogue_locution.volume_db = 0
+		SoundManager.lerp_pitch(dialogue_locution, dialogue_locution.pitch_scale,SoundManager.get_pitch_for_vowel_locution(letter))
+		
