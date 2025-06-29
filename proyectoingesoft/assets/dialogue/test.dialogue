@@ -1,19 +1,12 @@
-~ start
-Emiliano: [#mood=neutral] Hola Emiliano del futuro.
-Emiliano: [#mood=angry] Hola Emiliano.
-aaaaaaaaaaa
-eeeeeeeeee
-iiiiiiiiiii
-oooooooooo
-uuuuuuuuu
-aaaeeeiiiooouuu
-Emiliano: Recuerdas cual es la señal que se emite con cada letra?.
-- Si
-	Gerardo: Menos mal por que yo no me acordaba.
-	Emiliano: Perfecto!. => END
-- No
-	Emiliano: Se llama [pulse][color=RED]spoke.
-	Gerardo: Ahh menos maaal, listo listo.
-	Emiliano: ¡Tienes que estar pendiente!
-	Emiliano: La puedes encontrar en[wave][color=RED] dialogue_label.gd.
+~ p1
+Guillermo: [#mood=sufriendo][shake]Ya no me aguanto más [next=3] 
+Gerardo: ... [next=1.5]	
+Gerardo: [do teaser_change_dialogue_box_anchor()]Venga buscamos un arbolito pues [next=5]
+Susana: [wave]Eso te pasa por comerte el paquete tú solo! [/wave][next=4]
+Gerardo: [#mood=alterado][do teaser_reset_dialogue_box_anchor()][b]Susana![/b] [next=3]
+=> END
+
+~ p2
+Gerardo: Hijueputa [next=3]
+Gerardo: [#mood=alterado]Hay que irnos, aguántese [next=3]
 => END

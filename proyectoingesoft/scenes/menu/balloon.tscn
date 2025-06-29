@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://empjdhpgcd5w"]
+[gd_scene load_steps=13 format=3 uid="uid://empjdhpgcd5w"]
 
 [ext_resource type="Script" uid="uid://cghe8jv3folit" path="res://scenes/menu/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Texture2D" uid="uid://b76epmh2v4rs0" path="res://assets/sprites/characters/talking_heads/guillermo_sufriendo.png" id="2_hmgs1"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
-[ext_resource type="Texture2D" uid="uid://c3gx8n0xpmhvd" path="res://assets/audio/icon.svg" id="3_hmgs1"]
+[ext_resource type="Script" uid="uid://b0f37wlcjjrd4" path="res://scenes/menu/dialogue_box/character_label.gd" id="4_sfqxp"]
 [ext_resource type="AudioStream" uid="uid://wryv1nbq6xk8" path="res://assets/audio/dialogue_voices/voice_gerardo.ogg" id="5_hmgs1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -65,6 +66,8 @@ MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
+[sub_resource type="Theme" id="Theme_hmgs1"]
+
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_36de5")
@@ -85,17 +88,21 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -219.0
+offset_left = 328.41
+offset_top = -366.0
+offset_right = -311.59
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer"]
 clip_children = 2
 layout_mode = 2
+size_flags_vertical = 0
 mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
+theme = SubResource("Theme_hmgs1")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -103,10 +110,11 @@ theme_override_constants/separation = 20
 
 [node name="Portrait" type="TextureRect" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("3_hmgs1")
+size_flags_vertical = 8
+texture = ExtResource("2_hmgs1")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -117,15 +125,19 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
+script = ExtResource("4_sfqxp")
 
 [node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_a8ve6")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 30
 text = "Dialogue..."
 seconds_per_step = 0.05
 

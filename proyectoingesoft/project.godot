@@ -26,6 +26,12 @@ SoundManager="*res://autoloads/sound_manager.gd"
 editor/advanced/custom_test_scene_path="res://scenes/_debug/test_dialogue.tscn"
 runtime/balloon_path="res://scenes/menu/balloon.tscn"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")

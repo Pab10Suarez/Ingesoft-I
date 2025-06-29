@@ -44,6 +44,13 @@ var mutation_cooldown: Timer = Timer.new()
 
 ## The label showing the name of the currently speaking character
 @onready var character_label: RichTextLabel = %CharacterLabel
+## Diccionario con colores asociados a cada personaje
+const CHARACTER_COLOR : Dictionary[String, Color] = {
+	"guillermo" = Color(151, 67, 97),
+	"susana" = Color(96, 166, 130),
+	"gerardo" = Color(190, 138, 68)
+}
+
 
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
@@ -103,19 +110,17 @@ func apply_dialogue_line() -> void:
 	character_label.visible = not dialogue_line.character.is_empty()
 	# Fix propio
 	var voice_path : String = "res://assets/audio/dialogue_voices/voice_%s.ogg" % dialogue_line.character.to_lower()
-	print(voice_path)
 	if character_label.visible:
 		dialogue_locution.stream = load(voice_path)
-	# Termina fix propio
-	
+
 	character_label.text = tr(dialogue_line.character, "dialogue")
-	
-	# Inicia fix propio 
+	if CHARACTER_COLOR.has(character_label.text.to_lower()):
+		character_label.apply_color_based_on_character(CHARACTER_COLOR[character_label.text.to_lower()])
+
 	var tag : String = dialogue_line.get_tag_value("mood")
 	if tag == "":
 		tag = "neutral"
 	var portrait_path : String = "res://assets/sprites/characters/talking_heads/%s_%s.png" % [dialogue_line.character.to_lower(), tag]
-	
 	if FileAccess.file_exists(portrait_path):
 		portrait.texture = load(portrait_path)
 	else:
@@ -200,12 +205,22 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 #endregion
 
-
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
 	
-	if letter_index == 1 or dialogue_line.text[letter_index - 1] == " ":
+	if dialogue_line.text[letter_index] in [".", "?"]:
+		pass
+	elif letter_index == 0 or dialogue_line.text[letter_index - 1] == " ":
 		dialogue_locution.play()
 		
 	if letter.to_lower() in ["a", "e", "i", "o", "u", "y"]:
 		SoundManager.lerp_pitch(dialogue_locution, dialogue_locution.pitch_scale,SoundManager.get_pitch_for_vowel_locution(letter))
 		
+func teaser_change_dialogue_box_anchor() -> void:
+	$Balloon/MarginContainer.position = Vector2($Balloon/MarginContainer.position.x + 400,0)
+	var new_size : float = $Balloon/MarginContainer.size.x * 3/4
+	$Balloon/MarginContainer.size.x = new_size as int
+
+func teaser_reset_dialogue_box_anchor() -> void:
+	$Balloon/MarginContainer.position = Vector2($Balloon/MarginContainer.position.x - 400,712)
+	var new_size : float = $Balloon/MarginContainer.size.x * 4/3
+	$Balloon/MarginContainer.size.x = new_size as int
