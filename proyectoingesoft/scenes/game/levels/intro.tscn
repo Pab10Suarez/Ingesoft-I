@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5hs4du8qlqoe"]
 
-[ext_resource type="VideoStream" uid="uid://m3hey0k2efur" path="res://scenes/_debug/output.ogv" id="1_6kbg6"]
+[ext_resource type="VideoStream" uid="uid://bpbtpnnlluf7c" path="res://scenes/_debug/output2.ogv" id="1_6kbg6"]
 
 [sub_resource type="GDScript" id="GDScript_6kbg6"]
 script/source = "extends Node2D
