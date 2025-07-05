@@ -8,7 +8,6 @@ var estado_actual = Estados.NORMAL
 func _physics_process(delta):
     var direccion = Vector2.ZERO
     
-    # Movimiento con flechas (versión que prefieres)
     if Input.is_action_pressed("ui_right"):
         direccion.x += 1
     if Input.is_action_pressed("ui_left"):
@@ -17,26 +16,21 @@ func _physics_process(delta):
         direccion.y += 1
     if Input.is_action_pressed("ui_up"):
         direccion.y -= 1
-    
-    # Normalizar para movimiento diagonal
+
     if direccion.length() > 0:
         direccion = direccion.normalized()
     
     velocity = direccion * velocidad
     move_and_slide()
-    
-    # Opcional: Rotar sprite según dirección
-    if direccion.x != 0:
-        $Sprite2D.flip_h = direccion.x < 0
 
 func recolectar_objeto(tipo_objeto):
     match tipo_objeto:
         "linterna":
             estado_actual = Estados.CON_LINTERNA
             $Sprite2D.modulate = Color.YELLOW
-            print("¡Linterna recolectada! - Estado actual: CON LINTERNA")
+            print("¡Linterna recolectada!")
             
         "machete":
             estado_actual = Estados.CON_MACHETE
             $Sprite2D.modulate = Color.RED
-            print("¡Machete recolectado! - Estado actual: CON MACHETE")
+            print("¡Machete recolectado!")
