@@ -1,4 +1,4 @@
-# extends Node
+extends Node
 
 # Este script está pensado para guardar y cargar el progreso del jugador usando Firebase Firestore.
 # Por ahora está completamente comentado para que no se ejecute hasta que se integre oficialmente.

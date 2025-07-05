@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProyectoIngesoft"
-run/main_scene="uid://b5hs4du8qlqoe"
+run/main_scene="uid://dl4uw6t5kfrqr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/audio/icon.svg"
 
@@ -20,21 +20,20 @@ config/icon="res://assets/audio/icon.svg"
 DataBaseManager="*res://autoloads/data_base_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SoundManager="*res://autoloads/sound_manager.gd"
+SaveManager="*res://autoloads/save_manager.gd"
 
 [dialogue_manager]
 
 editor/advanced/custom_test_scene_path="res://scenes/_debug/test_dialogue.tscn"
 runtime/balloon_path="res://scenes/menu/balloon.tscn"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[global_group]
+
+Persist="Nodos cuya información es guardada a en la save"
 
 [input]
 
