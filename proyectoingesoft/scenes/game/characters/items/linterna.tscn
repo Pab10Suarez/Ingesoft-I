@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://deq1e0187fhhf"]
+
+[ext_resource type="Texture2D" uid="uid://dvve2w252aje1" path="res://scenes/game/characters/linterna.png" id="1_jlq2q"]
+[ext_resource type="Script" uid="uid://ddnmd8viqr0s1" path="res://scenes/game/characters/items/linterna.gd" id="1_kqhrk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vlvl"]
+
+[node name="linterna" type="Area2D"]
+script = ExtResource("1_kqhrk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5vlvl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_jlq2q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

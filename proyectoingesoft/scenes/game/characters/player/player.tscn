@@ -1,15 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://dei2ljm6liirt"]
+[gd_scene load_steps=6 format=3 uid="uid://dei2ljm6liirt"]
 
 [ext_resource type="Script" uid="uid://u8lf5hmdnsal" path="res://scenes/game/characters/player/player.gd" id="1_52x1p"]
 [ext_resource type="Texture2D" uid="uid://cv08a0em2lw5n" path="res://scenes/game/characters/icon5.svg" id="2_52xlp"]
+[ext_resource type="PackedScene" uid="uid://bf4nq5btdqinu" path="res://scenes/game/characters/items/machete.tscn" id="3_170a8"]
+[ext_resource type="PackedScene" uid="uid://deq1e0187fhhf" path="res://scenes/game/characters/items/linterna.tscn" id="4_6465l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(116, 115)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_52x1p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, 4.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(1, 5)
 texture = ExtResource("2_52xlp")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Label" type="Label" parent="Player"]
+offset_left = 64.0
+offset_top = -113.0
+offset_right = 158.0
+offset_bottom = -90.0
+text = "EstadoLabel"
+
+[node name="linterna" parent="." instance=ExtResource("4_6465l")]
+position = Vector2(-254, 109)
+
+[node name="machete" parent="." instance=ExtResource("3_170a8")]
+position = Vector2(-293, -178)

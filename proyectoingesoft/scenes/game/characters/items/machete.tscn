@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf4nq5btdqinu"]
+
+[ext_resource type="Script" uid="uid://dmmrdw0tq8lqv" path="res://scenes/game/characters/items/machete.gd" id="1_lec4q"]
+[ext_resource type="Texture2D" uid="uid://dyaaus41mu8g" path="res://scenes/game/characters/machete.png" id="1_mj4cr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lec4q"]
+size = Vector2(30, 25)
+
+[node name="machete" type="Area2D"]
+script = ExtResource("1_lec4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_mj4cr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lec4q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
