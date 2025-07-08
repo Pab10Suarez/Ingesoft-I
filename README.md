@@ -3,7 +3,7 @@
 
 ## Integrantes
 - Emiliano Guerra - eguerrag@unal.edu.co 
--
+-Sergio Tovar - setovarv@unal.edu.co
 -
 -
 
