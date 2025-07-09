@@ -3,13 +3,17 @@
 
 ## Integrantes
 - Emiliano Guerra - eguerrag@unal.edu.co 
--Sergio Tovar - setovarv@unal.edu.co
--Julian Murillo -jmurilloro@unal.edu.co
+- Sergio Tovar - setovarv@unal.edu.co
+- Julian Murillo -jmurilloro@unal.edu.co
 -
 
 ### Integrantes externos
 - Jacobo Marciales - jacobomarcialescampo@gmail.com
 - Simón Quijano - simenscar@gmail.com
+
+### Creditos externos
+- Dialogue Manager de [Nathan Hoad](https://github.com/nathanhoad/godot_dialogue_manager)
+- Free Topdown Fantasy de [Nauris](https://aamatniekss.itch.io/topdown-fantasy-forest)
 
 ## Descripción
 Éste repositorio es un videojuego topdown narrativo que estamos desarrollando para la materia <i> Ingeniería de Software 1 </i>, cuando entre en etapas maduras de producción, estará disponible a través del portal [itch.io](https://itch.io). <br> <br>

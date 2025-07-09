@@ -7,9 +7,9 @@ enum LEVELS {
 	DEMO_GAMEPLAY,
 	DEMO_ENDING
 }
-const LEVELS_PATH_DICTIONARY : Dictionary[int, String] = {
+const LEVELS_PATH_DICTIONARY : Dictionary[int, String] = {	# TODO probar cómo funciona la carga de niveles acá
 	LEVELS.DEMO_INTRO : "res://scenes/game/levels/intro.tscn",
-	LEVELS.DEMO_GAMEPLAY : "",
+	LEVELS.DEMO_GAMEPLAY : "res://scenes/game/levels/level_one.tscn",
 	LEVELS.DEMO_ENDING : ""
 }
 const LEVEL_NAME_DICTIONARY : Dictionary[int, String] = {
