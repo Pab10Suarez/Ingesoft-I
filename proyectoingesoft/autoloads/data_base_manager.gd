@@ -1,4 +1,4 @@
-eextends Node
+extends Node
 
 # URL de la API de PostgREST
 # Esta es la URL donde se realiza la solicitud para insertar datos
