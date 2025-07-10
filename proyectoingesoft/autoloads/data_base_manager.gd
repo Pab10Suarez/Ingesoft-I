@@ -1,48 +1,61 @@
-extends Node
+eextends Node
 
-# Este script está pensado para guardar y cargar el progreso del jugador usando Firebase Firestore.
-# Por ahora está completamente comentado para que no se ejecute hasta que se integre oficialmente.
+# URL de la API de PostgREST
+# Esta es la URL donde se realiza la solicitud para insertar datos
+# var api_url = "https://postgrest-api-87ek.onrender.com"
 
-# const PLAYER_ID := "jugador_test"  # ID estático. En el futuro se puede usar Firebase Auth.
-# const PLAYER_NODE_PATH := "/root/Player"  # Ruta del nodo Player dentro de la escena
+# Creamos un nodo HTTPRequest para realizar la solicitud HTTP
+# var request = HTTPRequest.new()
 
-# func _ready() -> void:
-#     # Conectar señal para recibir datos desde Firebase
-#     var firestore = Firebase.Firestore.get_singleton()
-#     firestore.connect("document_received", self, "_on_document_received")
+# func _ready():
+	# Añadimos el nodo HTTPRequest como hijo del nodo actual
+	# add_child(request)
+	
+	# Crear los datos del jugador a insertar
+	# var jugador_data = {
+		# "jugador_nombre": "Juan Pérez",  # Nombre del jugador
+		# "feedback": "Buen rendimiento",  # Feedback sobre el rendimiento del jugador
+		# "plataforma": "PC",  # Plataforma desde donde juega el jugador
+		# "idioma_sistema": "Español",  # Idioma del sistema del jugador
+		# "progresion_fk": 1,  # Asumimos que hay una progresión con ID 1
+		# "ultima_sesion": 1   # Asumimos que hay una sesión con ID 1
+	# }
 
-# func guardar_progreso(posicion: Vector2, puntaje: int, nivel: int) -> void:
-#     # Guarda el estado del jugador en Firestore
-#     var firestore = Firebase.Firestore.get_singleton()
-#     var datos := {
-#         "position": {"x": posicion.x, "y": posicion.y},
-#         "score": puntaje,
-#         "level": nivel
-#     }
-#     firestore.set_document("players", PLAYER_ID, datos)
-#     print("➡ Progreso guardado en Firebase:", datos)
+	# Convertimos los datos a formato JSON para poder enviarlos
+	# var json_data = JSON.stringify(jugador_data)
+	
+	# Verificamos si la conversión a JSON fue exitosa
+	# if json_data == "":
+		# print("Error: Los datos no se pudieron convertir a JSON.")
+		# return
+	
+	# Cabeceras HTTP que indican que estamos enviando datos en formato JSON
+	# var headers = ["Content-Type: application/json"]
 
-# func cargar_progreso() -> void:
-#     # Solicita los datos del jugador desde Firestore
-#     var firestore = Firebase.Firestore.get_singleton()
-#     firestore.get_document("players", PLAYER_ID)
-#     print("⬅ Solicitando progreso para:", PLAYER_ID)
+	# Conectar el evento de finalización de la solicitud HTTP
+	# request.connect("request_completed", Callable(self, "_on_request_completed"))
+	
+	# Realizamos la solicitud POST para insertar el jugador
+	# var error = request.request(api_url + "/Jugador", headers, HTTPClient.METHOD_POST, json_data)  # Usamos HTTPClient.METHOD_POST
+	
+	# Verificamos si ocurrió un error al realizar la solicitud
+	# if error != OK:
+		# print("Error al realizar la solicitud HTTP.")
+		# return
 
-# func _on_document_received(coleccion: String, documento: String, datos: Dictionary) -> void:
-#     # Lógica para aplicar los datos al jugador cuando se reciben desde Firebase
-#     if coleccion != "players" or documento != PLAYER_ID:
-#         return
+# Este es el método que se ejecuta cuando la solicitud HTTP se completa
+# Recibe la respuesta de la solicitud: código de respuesta, cabeceras y cuerpo
+# func _on_request_completed(_result, _response_code, _headers, _body):
+	# Imprimir el código de respuesta para entender si fue exitoso o no
+	# print("Código de respuesta: ", _response_code)
+	
+	# Si la solicitud fue exitosa (código 201), mostramos un mensaje de éxito
+	# if _response_code == 201:
+		# print("Jugador insertado exitosamente!")
+	# else:
+		# Si no fue exitoso, mostramos el código de respuesta y el cuerpo de la respuesta
+		# print("Error al insertar el jugador. Código de respuesta: ", _response_code)
+		# Convertimos el cuerpo de la respuesta de bytes a texto para que sea legible
+		# print("Cuerpo de la respuesta: ", _body.get_string_from_utf8())
 
-#     print("✅ Progreso recibido:", datos)
-
-#     var jugador = get_node_or_null(PLAYER_NODE_PATH)
-#     if jugador == null:
-#         push_error("⚠ No se encontró el nodo 'Player'")
-#         return
-
-#     if datos.has("position"):
-#         var pos = datos["position"]
-#         jugador.global_position = Vector2(pos.get("x", 0), pos.get("y", 0))
-
-#     jugador.player_score = datos.get("score", 0)
 #     jugador.nivel_actual = datos.get("level", 1)
