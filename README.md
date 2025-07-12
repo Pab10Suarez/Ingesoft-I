@@ -41,8 +41,8 @@ El videojuego cuenta la historia de **Gerardo**, un hombre joven que, guiando a 
 
 ### 🌍 Integrantes Externos
 
-- **Jacobo Marciales** - [jacobomarcialescampo@gmail.com](mailto:jacobomarcialescampo@gmail.com)
-- **Simón Quijano** - [simenscar@gmail.com](mailto:simenscar@gmail.com)
+- **Jacobo Marciales** - Artista 2D - [jacobomarcialescampo@gmail.com](mailto:jacobomarcialescampo@gmail.com)
+- **Simón Quijano** - Guión - [simenscar@gmail.com](mailto:simenscar@gmail.com)
 
 ---
 
