@@ -1,4 +1,4 @@
-<<h1 align="center">
+<h1 align="center">
   <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/347064595/original/57822dc17549e20a6f7e5b4b31f4ac35cedda5be/create-3d-and-2d-godot-game-vr-and-unity-game.jpg" alt="Godot Game" width="250"/>
   <br/>
   ¡Hola! 👋 Este es el Proyecto Niebla
@@ -16,7 +16,17 @@
 - 💡 **Motor de juego**: Godot 4.4  
 - ☁️ **Tecnologías**: Render (para hosting de bases de datos)  
 - 🌱 **Enfoque**: Enfocado en contar una historia profunda a través de un mundo peligroso y lleno de misterio.  
-- ⚙ **Desarrollo**: El proyecto está siendo desarrollado por un equipo de estudiantes de **Ingeniería de sistemas y Computación  ** de la **Universidad Nacional de Colombia**.
+- ⚙ **Desarrollo**: El proyecto está siendo desarrollado por un equipo de estudiantes de **Ingeniería de sistemas y Computación** de la **Universidad Nacional de Colombia**.
+
+---
+
+### 📝 Descripción
+
+Este repositorio es un videojuego **topdown** narrativo que estamos desarrollando para la materia **Ingeniería de Software 1**. Cuando entre en etapas maduras de producción, estará disponible a través del portal [itch.io](https://itch.io).  
+
+El videojuego cuenta la historia de **Gerardo**, un hombre joven que, guiando a sus sobrinos, tendrá que escabullirse a través de un páramo violento para asegurarles un mejor futuro.
+
+El proyecto está siendo desarrollado en **Godot 4.4**, utilizando **Render** para el hosting de bases de datos relacionales.
 
 ---
 
@@ -59,30 +69,9 @@
 
 ---
 
-### 📝 Descripción
-
-Este repositorio es un videojuego **topdown** narrativo que estamos desarrollando como parte de la materia **Ingeniería de Software 1**. El proyecto está diseñado para ofrecer una experiencia inmersiva con una historia que sigue a **Gerardo**, quien lucha por sobrevivir en un mundo peligroso.
-
-El proyecto está siendo desarrollado en **Godot 4.4**, utilizando **Render** para el hosting de bases de datos relacionales.
-
----
-
 ### 📜 Avances
 
 - **[Teaser](https://www.youtube.com/watch?v=GBBXZXmb8UE)**
-
----
-
-### 📫 ¿Dónde encontrar más información?
-
-<p align="center">
-  <a href="https://www.itch.io">
-    <img src="https://img.shields.io/badge/itch.io-Proyecto%20Niebla-FF4F00?style=for-the-badge&logo=itch.io&logoColor=white" />
-  </a>
-  <a href="mailto:jacobomarcialescampo@gmail.com">
-    <img src="https://img.shields.io/badge/Contacto-Jacobo%20Marciales-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-</p>
 
 ---
 
