@@ -35,7 +35,7 @@ El videojuego cuenta la historia de **Gerardo**, un hombre joven que, guiando a 
 - **Emiliano Guerra** - [eguerra@unal.edu.co](mailto:eguerra@unal.edu.co)
 - **Sergio Tovar** - [setovar@unal.edu.co](mailto:setovar@unal.edu.co)
 - **Julian Murillo** - [jmurilloro@unal.edu.co](mailto:jmurilloro@unal.edu.co)
-- **Pablo Suarez** - [pablusuarez@unal.edu.co](mailto:pablusuarez@unal.edu.co)
+-
 
 ---
 
