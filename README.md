@@ -5,6 +5,7 @@
 - Emiliano Guerra - eguerrag@unal.edu.co 
 - Sergio Tovar - setovarv@unal.edu.co
 - Julian Murillo -jmurilloro@unal.edu.co
+- Pablo Suarez
 -
 
 ### Integrantes externos
