@@ -1,86 +1,85 @@
 <h1 align="center">
   <img src="https://img.freepik.com/vector-premium/programacion-aislada-nube-ilustracion-estilo-plano-color_676904-12657.jpg" alt="Desarrollador en la nube" width="250"/>
   <br/>
-  ¡Hola! 👋 Soy Julian David Murillo Rodriguez
+  ¡Hola! 👋 Este es el Proyecto Niebla
 </h1>
 
 <h3 align="center">
-  🎓 Estudiante de Ingeniería de Sistemas 💻 | Apasionado por la tecnología, el desarrollo backend y la nube ☁
+  🎮 Videojuego topdown narrativo en desarrollo con Godot y tecnologías en la nube ☁️ | Un proyecto para **Ingeniería de Software**
 </h3>
 
 ---
 
-### 🚀 Sobre mí
+### 🚀 Sobre el Proyecto
 
-- 🎓 Estudiante de Ingeniería de Sistemas  
-- 💡 Interesado en desarrollo backend, arquitecturas escalables y servicios en la nube  
-- 🌱 Actualmente aprendiendo Spring Boot, AWS y DevOps  
-- ⚙ Me gusta resolver problemas con código limpio y buenas prácticas  
-
----
-
-### 🛠 Tecnologías y herramientas
-
-#### 🧠 Lenguajes de programación
-
-<p>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" alt="Java"/>
-</p>
-
-#### 🧩 Frameworks & Librerías
-
-<p>
-  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white" alt="Spring Boot"/>
-</p>
-
-#### ☁️ Nube y DevOps
-
-<p>
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS"/>
-</p>
-
-#### 🛠 Herramientas de desarrollo
-
-<p>
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git"/>
-  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code"/>
-  <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white" alt="IntelliJ IDEA"/>
-</p>
+- 🎮 **Género**: Videojuego topdown narrativo  
+- 💡 **Motor de juego**: Godot 4.4  
+- ☁️ **Tecnologías**: Render (para hosting de bases de datos)  
+- 🌱 **Enfoque**: Enfocado en contar una historia profunda a través de un mundo peligroso y lleno de misterio.  
+- ⚙ **Desarrollo**: El proyecto está siendo desarrollado por un equipo de estudiantes de **Ingeniería de Software** de la **Universidad Nacional de Colombia**.
 
 ---
 
-### 🏆 Trofeos de GitHub
+### 👨‍💻 Integrantes del Proyecto
+
+- **Emiliano Guerra** - [eguerra@unal.edu.co](mailto:eguerra@unal.edu.co)
+- **Sergio Tovar** - [setovar@unal.edu.co](mailto:setovar@unal.edu.co)
+- **Julian Murillo** - [jmurilloro@unal.edu.co](mailto:jmurilloro@unal.edu.co)
+- **Pablo Suarez** - [pablusuarez@unal.edu.co](mailto:pablusuarez@unal.edu.co)
+
+---
+
+### 🌍 Integrantes Externos
+
+- **Jacobo Marciales** - [jacobomarcialescampo@gmail.com](mailto:jacobomarcialescampo@gmail.com)
+- **Simón Quijano** - [simenscar@gmail.com](mailto:simenscar@gmail.com)
+
+---
+
+### 🛠 Tecnologías y Herramientas
+
+#### 🧠 Motor de juego
+
+<p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Godot_Engine_Logo.svg/600px-Godot_Engine_Logo.svg.png" alt="Godot Logo" width="100"/>
+</p>
+
+#### ☁️ Nube y Hosting
+
+<p>
+  <img src="https://render.com/static/logo/white_logo.svg" alt="Render Logo" width="150"/>
+</p>
+
+---
+
+### 📚 Créditos Externos
+
+- **Dialogue Manager** de [Nathan Hoad](https://github.com/nathanhoad/podest_dialogue_manager)  
+- **Free Topdown Fantasy** de [Nauris](https://assets.itch.io/free-topdown-fantasy)
+
+---
+
+### 📝 Descripción
+
+Este repositorio es un videojuego **topdown** narrativo que estamos desarrollando como parte de la materia **Ingeniería de Software 1**. El proyecto está diseñado para ofrecer una experiencia inmersiva con una historia que sigue a **Gerardo**, quien lucha por sobrevivir en un mundo peligroso.
+
+El proyecto está siendo desarrollado en **Godot 4.4**, utilizando **Render** para el hosting de bases de datos relacionales.
+
+---
+
+### 📜 Avances
+
+- **[Teaser](https://www.youtube.com/watch?v=GBBXZXmb8UE)**
+
+---
+
+### 📫 ¿Dónde encontrar más información?
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=julian-2348&theme=radical&no-frame=true&no-bg=true&margin-w=10" />
-</p>
-
----
-
-### 📊 Estadísticas de GitHub
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=julian-2348&show_icons=true&theme=radical" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=julian-2348&layout=compact&theme=radical" alt="Top Languages" />
-</p>
-
----
-
-### 📫 ¿Dónde encontrarme?
-
-<p align="center">
-  <a href="https://www.linkedin.com/in/julian-david-murillo-rodriguez-6b486a33b/">
-    <img src="https://img.shields.io/badge/LinkedIn-Julian%20Murillo-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  <a href="https://www.itch.io">
+    <img src="https://img.shields.io/badge/itch.io-Proyecto%20Niebla-FF4F00?style=for-the-badge&logo=itch.io&logoColor=white" />
   </a>
-  <a href="mailto:julianmurillo2348@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-julianmurillo2348@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-</p>
+  <a href="mailto:jacobomarcialescampo@gmail.com">
+    <img src="https://img.shields.io/badge/Contacto-Jacobo%20Marciales-D14836?style=f
 
----
-
-<p align="center">
-  ✨ Gracias por visitar mi perfil. ¡Estoy en constante aprendizaje y abierto a colaborar en proyectos interesantes! 🚀
-</p>
 
