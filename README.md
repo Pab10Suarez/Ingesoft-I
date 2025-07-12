@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://img.freepik.com/vector-premium/programacion-aislada-nube-ilustracion-estilo-plano-color_676904-12657.jpg" alt="Desarrollador en la nube" width="250"/>
+  <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/347064595/original/57822dc17549e20a6f7e5b4b31f4ac35cedda5be/create-3d-and-2d-godot-game-vr-and-unity-game.jpg" alt="Godot Game" width="250"/>
   <br/>
   ¡Hola! 👋 Este es el Proyecto Niebla
 </h1>
@@ -80,6 +80,14 @@ El proyecto está siendo desarrollado en **Godot 4.4**, utilizando **Render** pa
     <img src="https://img.shields.io/badge/itch.io-Proyecto%20Niebla-FF4F00?style=for-the-badge&logo=itch.io&logoColor=white" />
   </a>
   <a href="mailto:jacobomarcialescampo@gmail.com">
-    <img src="https://img.shields.io/badge/Contacto-Jacobo%20Marciales-D14836?style=f
+    <img src="https://img.shields.io/badge/Contacto-Jacobo%20Marciales-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+</p>
+
+---
+
+<p align="center">
+  ✨ Gracias por visitar nuestro proyecto. ¡Estamos en constante desarrollo y abiertos a colaborar con más creativos! 🚀
+</p>
 
 
