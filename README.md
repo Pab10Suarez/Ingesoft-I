@@ -1,4 +1,4 @@
-<h1 align="center">
+<<h1 align="center">
   <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/347064595/original/57822dc17549e20a6f7e5b4b31f4ac35cedda5be/create-3d-and-2d-godot-game-vr-and-unity-game.jpg" alt="Godot Game" width="250"/>
   <br/>
   ¡Hola! 👋 Este es el Proyecto Niebla
@@ -41,13 +41,13 @@
 #### 🧠 Motor de juego
 
 <p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Godot_Engine_Logo.svg/600px-Godot_Engine_Logo.svg.png" alt="Godot Logo" width="100"/>
+  <img src="https://media.indiedb.com/images/members/2/1650/1649275/profile/godot-demo.png" alt="Godot Logo" width="100"/>
 </p>
 
 #### ☁️ Nube y Hosting
 
 <p>
-  <img src="https://render.com/static/logo/white_logo.svg" alt="Render Logo" width="150"/>
+  <img src="https://intellyx.com/wp-content/uploads/2019/08/Render-cloud-intellyx-BC-logo.png" alt="Render Logo" width="150"/>
 </p>
 
 ---
@@ -89,5 +89,3 @@ El proyecto está siendo desarrollado en **Godot 4.4**, utilizando **Render** pa
 <p align="center">
   ✨ Gracias por visitar nuestro proyecto. ¡Estamos en constante desarrollo y abiertos a colaborar con más creativos! 🚀
 </p>
-
-
