@@ -26,7 +26,7 @@ Este repositorio es un videojuego **topdown** narrativo que estamos desarrolland
 
 El videojuego cuenta la historia de **Gerardo**, un hombre joven que, guiando a sus sobrinos, tendrá que escabullirse a través de un páramo violento para asegurarles un mejor futuro.
 
-El proyecto está siendo desarrollado en **Godot 4.4**, utilizando **Render** para el hosting de bases de datos relacionales.
+
 
 ---
 
