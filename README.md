@@ -16,7 +16,7 @@
 - 💡 **Motor de juego**: Godot 4.4  
 - ☁️ **Tecnologías**: Render (para hosting de bases de datos)  
 - 🌱 **Enfoque**: Enfocado en contar una historia profunda a través de un mundo peligroso y lleno de misterio.  
-- ⚙ **Desarrollo**: El proyecto está siendo desarrollado por un equipo de estudiantes de **Ingeniería de sitemas y computaciÓn ** de la **Universidad Nacional de Colombia**.
+- ⚙ **Desarrollo**: El proyecto está siendo desarrollado por un equipo de estudiantes de **Ingeniería de sitemas y Computación  ** de la **Universidad Nacional de Colombia**.
 
 ---
 
