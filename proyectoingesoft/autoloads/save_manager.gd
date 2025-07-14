@@ -12,11 +12,6 @@ const LEVELS_PATH_DICTIONARY : Dictionary[int, String] = {	# TODO probar cómo f
 	LEVELS.DEMO_GAMEPLAY : "res://scenes/game/levels/level_one.tscn",
 	LEVELS.DEMO_ENDING : ""
 }
-const LEVEL_NAME_DICTIONARY : Dictionary[int, String] = {
-	LEVELS.DEMO_INTRO : "Opening",
-	LEVELS.DEMO_GAMEPLAY : "Spawnpoint Demo",
-	LEVELS.DEMO_ENDING : "Ending"
-}
 
 @export var version := 1
 
@@ -24,12 +19,12 @@ const LEVEL_NAME_DICTIONARY : Dictionary[int, String] = {
 @export var susana : Resource
 @export var guillermo : Resource
 
-@export var level : String = "Opening"
+@export var level := LEVELS.DEMO_GAMEPLAY			## TODO: poner 
 @export var death_counter : int = 0
 
 func _ready() -> void:
 	add_to_group(PERSISTENT_NODES_REFERENCE)
-
+		
 #region Save-Load
 
 func write_save_game() -> void: 
@@ -71,4 +66,16 @@ func save_in(config_f : ConfigFile) -> void:
 func load_from(config_f : ConfigFile) -> void:
 	level = config_f.get_value(name, "level")
 	death_counter = config_f.get_value(name, "death_counter")
+	_load_appropiate_scene()
+
+func _load_appropiate_scene() -> void:
+	ResourceLoader.load_threaded_request(LEVELS_PATH_DICTIONARY[level])
+	while ResourceLoader.load_threaded_get_status(LEVELS_PATH_DICTIONARY[level]) != ResourceLoader.THREAD_LOAD_LOADED:
+		await get_tree().process_frame
+	
+	var level_to_load : Resource = ResourceLoader.load_threaded_get(LEVELS_PATH_DICTIONARY[level])
+	get_tree().change_scene_to_packed(level_to_load)
+	
+
+	
 #endregion
