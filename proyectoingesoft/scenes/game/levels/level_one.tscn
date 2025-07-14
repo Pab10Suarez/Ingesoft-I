@@ -1,9 +1,29 @@
-[gd_scene load_steps=3 format=4 uid="uid://dqrqs57i3jetv"]
+[gd_scene load_steps=7 format=4 uid="uid://dqrqs57i3jetv"]
 
 [ext_resource type="TileSet" uid="uid://b51bxyxgngnf7" path="res://assets/resources/tiles/tile_set_ground.tres" id="1_xj4ym"]
 [ext_resource type="TileSet" uid="uid://rn8pucu56cq0" path="res://assets/resources/tiles/tile_set_nature.tres" id="2_4svh4"]
+[ext_resource type="AudioStream" uid="uid://cuyt4ubdoj74" path="res://assets/audio/ambients/Asi-suena-el-paramo_-Sonidos-nocturnos-del-pantano-de-marctos.ogg" id="3_5radx"]
+
+[sub_resource type="Environment" id="Environment_4svh4"]
+background_mode = 3
+adjustment_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_5radx"]
+offsets = PackedFloat32Array(0, 0.630952)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_loo3v"]
+gradient = SubResource("Gradient_5radx")
+width = 128
+height = 128
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.49569, 0.512931)
 
 [node name="LevelOne" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4svh4")
 
 [node name="Scenery" type="Node2D" parent="."]
 
@@ -21,3 +41,19 @@ tile_set = ExtResource("1_xj4ym")
 texture_filter = 1
 tile_map_data = PackedByteArray("AAAGAAcAAAAGAAMAAAAFAAMAAAAHAAMAAAAGAAEAAAAEAAMAAAAKAAEAAAAEAAMAAAAJAAQAAAAEAAMAAAAKAAcAAAAHAAMAAAADAAgAAAAGAAIAAAA=")
 tile_set = ExtResource("2_4svh4")
+
+[node name="Ambient" type="AudioStreamPlayer2D" parent="Scenery"]
+stream = ExtResource("3_5radx")
+autoplay = true
+
+[node name="LightSources" type="Node" parent="."]
+
+[node name="Noche" type="DirectionalLight2D" parent="LightSources"]
+energy = 0.9
+blend_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="LightSources"]
+position = Vector2(163, 98)
+scale = Vector2(2.60132, 2.07947)
+color = Color(1, 1, 0, 1)
+texture = SubResource("GradientTexture2D_loo3v")

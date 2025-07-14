@@ -30,6 +30,8 @@ offset_right = 158.0
 offset_bottom = -90.0
 text = "EstadoLabel"
 
+[node name="PlayerCamera" type="Camera2D" parent="Player"]
+
 [node name="linterna" parent="." instance=ExtResource("4_6465l")]
 position = Vector2(-254, 109)
 
