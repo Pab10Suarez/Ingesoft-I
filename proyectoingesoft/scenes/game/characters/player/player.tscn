@@ -1,12 +1,130 @@
-[gd_scene load_steps=6 format=3 uid="uid://dei2ljm6liirt"]
+[gd_scene load_steps=19 format=3 uid="uid://dei2ljm6liirt"]
 
 [ext_resource type="Script" uid="uid://u8lf5hmdnsal" path="res://scenes/game/characters/player/player.gd" id="1_52x1p"]
-[ext_resource type="Texture2D" uid="uid://cv08a0em2lw5n" path="res://scenes/game/characters/icon5.svg" id="2_52xlp"]
-[ext_resource type="PackedScene" uid="uid://bf4nq5btdqinu" path="res://scenes/game/characters/items/machete.tscn" id="3_170a8"]
+[ext_resource type="Texture2D" uid="uid://bjd5y7htbp08v" path="res://assets/sprites/characters/gerardo/Gerardo Walkcycle Spritesheet.png" id="2_44xbp"]
 [ext_resource type="PackedScene" uid="uid://deq1e0187fhhf" path="res://scenes/game/characters/items/linterna.tscn" id="4_6465l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(116, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnbjh"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(26, 0, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_170a8"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(0, 0, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6465l"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(52, 0, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h4d4"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(26, 42, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_marrc"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(0, 42, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch0m3"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(52, 42, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w453t"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(26, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfpty"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(0, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr8au"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(52, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2bkr"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(26, 84, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkv41"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(0, 84, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcykp"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(52, 84, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67qkq"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(26, 0, 26, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83txs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnbjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_170a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6465l")
+}],
+"loop": true,
+"name": &"abajo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h4d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_marrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch0m3")
+}],
+"loop": true,
+"name": &"arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w453t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfpty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr8au")
+}],
+"loop": true,
+"name": &"derecha",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2bkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkv41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcykp")
+}],
+"loop": true,
+"name": &"izquierda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67qkq")
+}],
+"loop": true,
+"name": &"reposo",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,10 +135,6 @@ script = ExtResource("1_52x1p")
 position = Vector2(1, 4.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(1, 5)
-texture = ExtResource("2_52xlp")
-
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Label" type="Label" parent="Player"]
@@ -30,10 +144,9 @@ offset_right = 158.0
 offset_bottom = -90.0
 text = "EstadoLabel"
 
-[node name="PlayerCamera" type="Camera2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_83txs")
+animation = &"abajo"
 
 [node name="linterna" parent="." instance=ExtResource("4_6465l")]
-position = Vector2(-254, 109)
-
-[node name="machete" parent="." instance=ExtResource("3_170a8")]
-position = Vector2(-293, -178)
+position = Vector2(463, 212)
