@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 200  # Velocidad del jugador
+const SPEED = 50  # Velocidad del jugador
 
 enum PlayerState { NORMAL, CON_LINTERNA, CON_MACHETE }
 var state: PlayerState = PlayerState.NORMAL

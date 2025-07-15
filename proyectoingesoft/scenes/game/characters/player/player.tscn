@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dei2ljm6liirt"]
 
 [ext_resource type="Script" uid="uid://u8lf5hmdnsal" path="res://scenes/game/characters/player/player.gd" id="1_52x1p"]
-[ext_resource type="Texture2D" uid="uid://bjd5y7htbp08v" path="res://assets/sprites/characters/gerardo/Gerardo Walkcycle Spritesheet.png" id="2_44xbp"]
+[ext_resource type="Texture2D" uid="uid://b3woqukfxd4m0" path="res://assets/sprites/characters/gerardo/Gerardo Walkcycle Spritesheet.png" id="2_44xbp"]
 [ext_resource type="PackedScene" uid="uid://deq1e0187fhhf" path="res://scenes/game/characters/items/linterna.tscn" id="4_6465l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
@@ -11,13 +11,13 @@ size = Vector2(116, 115)
 atlas = ExtResource("2_44xbp")
 region = Rect2(26, 0, 26, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_170a8"]
-atlas = ExtResource("2_44xbp")
-region = Rect2(0, 0, 26, 42)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6465l"]
 atlas = ExtResource("2_44xbp")
 region = Rect2(52, 0, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_170a8"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(0, 0, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h4d4"]
 atlas = ExtResource("2_44xbp")
@@ -66,10 +66,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_tnbjh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_170a8")
+"texture": SubResource("AtlasTexture_6465l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6465l")
+"texture": SubResource("AtlasTexture_170a8")
 }],
 "loop": true,
 "name": &"abajo",
@@ -136,6 +136,7 @@ position = Vector2(1, 4.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3.05, 3.05)
 
 [node name="Label" type="Label" parent="Player"]
 offset_left = 64.0
@@ -147,6 +148,7 @@ text = "EstadoLabel"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_83txs")
 animation = &"abajo"
+frame_progress = 0.80311
 
 [node name="linterna" parent="." instance=ExtResource("4_6465l")]
 position = Vector2(463, 212)
