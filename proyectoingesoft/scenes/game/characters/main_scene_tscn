@@ -1,0 +1,20 @@
+ main_scene_tscn
+extends Node
+
+var gerardo: Node
+var claudio: Node
+var guillermo: Node
+var susana: Node
+
+func _ready():
+	# Asignar los nodos de los personajes en la escena
+	gerardo = $Gerardo
+	claudio = $Claudio
+	guillermo = $Guillermo
+	susana = $Susana
+
+	# Asignar el estado inicial a cada personaje
+	gerardo.set_estado(EstadoPersonaje.IDLE)
+	claudio.set_estado(EstadoPersonaje.IDLE)
+	guillermo.set_estado(EstadoPersonaje.IDLE)
+	susana.set_estado(EstadoPersonaje.IDLE)
