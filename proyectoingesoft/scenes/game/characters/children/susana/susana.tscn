@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6ja61hng1ukp"]
+
+[ext_resource type="Script" uid="uid://17hvymo4fp0j" path="res://scenes/game/characters/children/susana/susana.gd" id="1_1q543"]
+[ext_resource type="Texture2D" uid="uid://cv08a0em2lw5n" path="res://scenes/game/characters/icon5.svg" id="2_ri8yb"]
+
+[sub_resource type="Animation" id="Animation_bj855"]
+resource_name = "IDLE"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0tn6j"]
+_data = {
+&"IDLE": SubResource("Animation_bj855")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ahoe"]
+radius = 59.0
+height = 118.0
+
+[node name="Susana" type="CharacterBody2D"]
+script = ExtResource("1_1q543")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0tn6j")
+}
+
+[node name="Icon5" type="Sprite2D" parent="."]
+texture = ExtResource("2_ri8yb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_6ahoe")

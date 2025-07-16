@@ -27,6 +27,10 @@ SaveManager="*res://autoloads/save_manager.gd"
 editor/advanced/custom_test_scene_path="res://scenes/_debug/test_dialogue.tscn"
 runtime/balloon_path="res://scenes/menu/balloon.tscn"
 
+[dotnet]
+
+project/assembly_name="ProyectoIngesoft"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
