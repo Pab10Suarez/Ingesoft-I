@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://deq1e0187fhhf" path="res://scenes/game/characters/items/linterna.tscn" id="4_6465l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(116, 115)
+size = Vector2(12, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tnbjh"]
 atlas = ExtResource("2_44xbp")
@@ -126,29 +126,30 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_52x1p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(1, 4.5)
+[node name="FeetCollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1.5)
 shape = SubResource("RectangleShape2D_onrkg")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.05, 3.05)
 
-[node name="Label" type="Label" parent="Player"]
+[node name="Label" type="Label" parent="."]
 offset_left = 64.0
 offset_top = -113.0
 offset_right = 158.0
 offset_bottom = -90.0
 text = "EstadoLabel"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_83txs")
 animation = &"abajo"
 frame_progress = 0.80311
+offset = Vector2(0, -17.77)
 
 [node name="linterna" parent="." instance=ExtResource("4_6465l")]
 position = Vector2(463, 212)
