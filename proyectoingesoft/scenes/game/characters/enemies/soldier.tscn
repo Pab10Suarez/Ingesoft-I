@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://do2epfax2nr6u"]
+
+[ext_resource type="Texture2D" uid="uid://buhxsq88der3j" path="res://assets/sprites/characters/soldiers/soviet_soldiers.png" id="1_wrk0l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0033m"]
+size = Vector2(15, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dghy2"]
+atlas = ExtResource("1_wrk0l")
+region = Rect2(132, 3, 62, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lch3"]
+atlas = ExtResource("1_wrk0l")
+region = Rect2(70, 3, 62, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yj7j"]
+atlas = ExtResource("1_wrk0l")
+region = Rect2(8, 3, 62, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0033m"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dghy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lch3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yj7j")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[node name="Soldier" type="RigidBody2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0033m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, -16)
+scale = Vector2(0.532258, 0.5)
+sprite_frames = SubResource("SpriteFrames_0033m")
+animation = &"walk_right"
+frame_progress = 0.211203
