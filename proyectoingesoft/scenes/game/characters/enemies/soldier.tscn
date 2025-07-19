@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://do2epfax2nr6u"]
+[gd_scene load_steps=8 format=3 uid="uid://do2epfax2nr6u"]
 
+[ext_resource type="Script" uid="uid://dax5o5oritoeo" path="res://scenes/game/characters/enemies/soldier.gd" id="1_f0i0b"]
 [ext_resource type="Texture2D" uid="uid://buhxsq88der3j" path="res://assets/sprites/characters/soldiers/soviet_soldiers.png" id="1_wrk0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0033m"]
@@ -47,6 +48,10 @@ animations = [{
 [node name="Soldier" type="RigidBody2D"]
 z_index = 1
 y_sort_enabled = true
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_f0i0b")
+paraco_name = "Hernán"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0033m")
@@ -57,3 +62,5 @@ scale = Vector2(0.532258, 0.5)
 sprite_frames = SubResource("SpriteFrames_0033m")
 animation = &"walk_right"
 frame_progress = 0.211203
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

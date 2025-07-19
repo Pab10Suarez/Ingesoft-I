@@ -38,6 +38,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [global_group]
 
 Persist="Nodos cuya información es guardada a en la save"
+Player=""
+VehicleStops=""
 
 [input]
 
@@ -72,6 +74,8 @@ locale/translations_pot_files=PackedStringArray("res://assets/dialogue/test.dial
 
 [layer_names]
 
+2d_render/layer_1="Y-Independant Light"
+2d_render/layer_2="Y-Dependant Light"
 2d_physics/layer_1="Floor Collisions"
 2d_physics/layer_2="Height Collision"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dqrqs57i3jetv"]
+[gd_scene load_steps=12 format=4 uid="uid://dqrqs57i3jetv"]
 
 [ext_resource type="TileSet" uid="uid://b51bxyxgngnf7" path="res://assets/resources/tiles/tile_set_ground.tres" id="1_xj4ym"]
 [ext_resource type="TileSet" uid="uid://rn8pucu56cq0" path="res://assets/resources/tiles/tile_set_nature.tres" id="2_4svh4"]
@@ -22,6 +22,13 @@ height = 128
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.49569, 0.512931)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5uu1i"]
+vertices = PackedVector2Array(324, 178.961, 14, 178.031, 14, 12, 324, 12)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 2, 4, 188, 334, 189, 334, 2)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uu1i"]
 
 [node name="LevelOne" type="Node2D"]
 y_sort_enabled = true
@@ -50,23 +57,36 @@ tile_set = ExtResource("2_4svh4")
 stream = ExtResource("3_5radx")
 autoplay = true
 
-[node name="LightSources" type="Node" parent="."]
+[node name="StaticLightSources" type="Node" parent="."]
 
-[node name="Noche" type="DirectionalLight2D" parent="LightSources"]
+[node name="Noche" type="DirectionalLight2D" parent="StaticLightSources"]
 energy = 0.9
 blend_mode = 1
+range_item_cull_mask = 3
 
-[node name="PointLight2D" type="PointLight2D" parent="LightSources"]
+[node name="PointLight2D" type="PointLight2D" parent="StaticLightSources"]
 position = Vector2(163, 98)
 scale = Vector2(2.60132, 2.07947)
 color = Color(1, 1, 0, 1)
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_loo3v")
 
 [node name="PickupParaca" parent="." instance=ExtResource("5_0033m")]
-position = Vector2(172, 117)
+position = Vector2(172, 204.155)
 
 [node name="Player" parent="." instance=ExtResource("4_loo3v")]
 position = Vector2(58, 115)
 
 [node name="Soldier" parent="." instance=ExtResource("6_5uu1i")]
-position = Vector2(131, 71)
+position = Vector2(115.37, 71)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_5uu1i")
+
+[node name="Triggers" type="Node" parent="."]
+
+[node name="PickUpStop" type="Area2D" parent="Triggers" groups=["VehicleStops"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/PickUpStop"]
+position = Vector2(170, 51)
+shape = SubResource("RectangleShape2D_5uu1i")

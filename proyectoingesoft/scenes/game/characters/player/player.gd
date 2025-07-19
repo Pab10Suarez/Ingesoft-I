@@ -18,9 +18,9 @@ var last_direction: Vector2 = Vector2.RIGHT
 @export var linterna_offset := Vector2(25.0, 5.0)
 
 # --- VARIABLES PARA LAS HUELLAS (¡CON EL CAMBIO!) ---
-const DISTANCIA_HUELLA = 80.0 # ¡MODIFICADO! Más distancia entre cada par de huellas.
-const DESPLAZAMIENTO_HUELLA_LATERAL = 4.0
-const DESPLAZAMIENTO_HUELLA_VERTICAL = 12.0
+const DISTANCIA_HUELLA = 20#80.0 # ¡MODIFICADO! Más distancia entre cada par de huellas.
+const DESPLAZAMIENTO_HUELLA_LATERAL = 0#4.0
+const DESPLAZAMIENTO_HUELLA_VERTICAL = 0#12.0
 var ultima_posicion_huella: Vector2
 var textura_huella_generada: Texture2D
 
@@ -119,8 +119,8 @@ func _crear_una_huella_en(posicion: Vector2):
 
 
 func _crear_textura_huella() -> Texture2D:
-	var ancho = 8
-	var alto = 14
+	var ancho = 6#8
+	var alto = 10#14
 	var image = Image.create(ancho, alto, false, Image.FORMAT_RGBA8)
 	var color_huella = Color(0.3, 0.2, 0.1, 0.6)
 	var centro = Vector2(ancho / 2, alto / 2)
