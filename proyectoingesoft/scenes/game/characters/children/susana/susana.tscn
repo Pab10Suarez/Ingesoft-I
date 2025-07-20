@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://b6ja61hng1ukp"]
+[gd_scene load_steps=20 format=3 uid="uid://b6ja61hng1ukp"]
 
 [ext_resource type="Script" uid="uid://17hvymo4fp0j" path="res://scenes/game/characters/children/susana/susana.gd" id="1_1q543"]
-[ext_resource type="Texture2D" uid="uid://cv08a0em2lw5n" path="res://scenes/game/characters/icon5.svg" id="2_ri8yb"]
 [ext_resource type="Texture2D" uid="uid://clwt7d8053gt5" path="res://assets/sprites/characters/susana/Susana Walkcycle Spritesheet.png" id="3_algj1"]
 
 [sub_resource type="Animation" id="Animation_bj855"]
@@ -13,87 +12,74 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ahoe"]
-radius = 59.0
-height = 118.0
+radius = 11.0
+height = 42.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ahoe"]
+atlas = ExtResource("3_algj1")
+region = Rect2(0, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_algj1"]
+atlas = ExtResource("3_algj1")
+region = Rect2(26, 126, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqsja"]
 atlas = ExtResource("3_algj1")
-region = Rect2(3, 10, 25, 28)
+region = Rect2(52, 126, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jy7m4"]
 atlas = ExtResource("3_algj1")
-region = Rect2(28, 10, 25, 28)
+region = Rect2(26, 0, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1rpr"]
 atlas = ExtResource("3_algj1")
-region = Rect2(53, 10, 25, 28)
+region = Rect2(0, 0, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnls6"]
 atlas = ExtResource("3_algj1")
-region = Rect2(3, 52, 25, 28)
+region = Rect2(52, 0, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0whvi"]
 atlas = ExtResource("3_algj1")
-region = Rect2(28, 52, 25, 28)
+region = Rect2(0, 84, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6xuu"]
 atlas = ExtResource("3_algj1")
-region = Rect2(53, 52, 25, 28)
+region = Rect2(26, 84, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cd7d"]
 atlas = ExtResource("3_algj1")
-region = Rect2(3, 97, 25, 28)
+region = Rect2(52, 84, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5ce"]
 atlas = ExtResource("3_algj1")
-region = Rect2(28, 97, 25, 28)
+region = Rect2(0, 42, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vf4r"]
 atlas = ExtResource("3_algj1")
-region = Rect2(53, 97, 25, 28)
+region = Rect2(26, 42, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7wdl"]
 atlas = ExtResource("3_algj1")
-region = Rect2(3, 138, 25, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vxde"]
-atlas = ExtResource("3_algj1")
-region = Rect2(28, 138, 25, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_etoef"]
-atlas = ExtResource("3_algj1")
-region = Rect2(53, 138, 25, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hbub"]
-atlas = ExtResource("3_algj1")
-region = Rect2(3, 97, 25, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gch7p"]
-atlas = ExtResource("3_algj1")
-region = Rect2(28, 97, 25, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3gw8"]
-atlas = ExtResource("3_algj1")
-region = Rect2(53, 97, 25, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_01ych"]
-atlas = ExtResource("3_algj1")
-region = Rect2(3, 138, 25, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3fyr"]
-atlas = ExtResource("3_algj1")
-region = Rect2(28, 138, 25, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v7mij"]
-atlas = ExtResource("3_algj1")
-region = Rect2(53, 138, 25, 28)
+region = Rect2(52, 42, 26, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2kv4v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sqsja")
+"texture": SubResource("AtlasTexture_6ahoe")
 }, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_algj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqsja")
+}],
+"loop": true,
+"name": &"walk right",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jy7m4")
 }, {
@@ -102,7 +88,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pnls6")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0whvi")
 }, {
@@ -111,7 +102,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1cd7d")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wy5ce")
 }, {
@@ -120,50 +116,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q7wdl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2vxde")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_etoef")
 }],
-"loop": true,
-"name": &"walk_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6hbub")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gch7p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l3gw8")
-}],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_01ych")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l3fyr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v7mij")
-}],
-"loop": true,
-"name": &"walk_right",
-"speed": 5.0
-}, {
-"frames": [],
 "loop": true,
 "name": &"walk_up",
 "speed": 5.0
 }]
+
+[sub_resource type="Curve2D" id="Curve2D_2vxde"]
 
 [node name="Susana" type="CharacterBody2D"]
 script = ExtResource("1_1q543")
@@ -173,12 +132,19 @@ libraries = {
 &"": SubResource("AnimationLibrary_0tn6j")
 }
 
-[node name="Icon5" type="Sprite2D" parent="."]
-texture = ExtResource("2_ri8yb")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_6ahoe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2kv4v")
-animation = &"walk_up"
+animation = &"walk_left"
+
+[node name="DecisionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2vxde")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+[node name="Timer" type="Timer" parent="."]
