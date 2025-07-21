@@ -30,13 +30,13 @@ region = Rect2(26, 42, 26, 42)
 atlas = ExtResource("2_44xbp")
 region = Rect2(52, 42, 26, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfpty"]
-atlas = ExtResource("2_44xbp")
-region = Rect2(0, 126, 26, 42)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_w453t"]
 atlas = ExtResource("2_44xbp")
 region = Rect2(26, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfpty"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(0, 126, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mr8au"]
 atlas = ExtResource("2_44xbp")
@@ -86,10 +86,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yfpty")
+"texture": SubResource("AtlasTexture_w453t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w453t")
+"texture": SubResource("AtlasTexture_yfpty")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mr8au")
@@ -141,7 +141,7 @@ text = "EstadoLabel"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_83txs")
-animation = &"izquierda"
+animation = &"derecha"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -20)

@@ -24,6 +24,9 @@ const DESPLAZAMIENTO_HUELLA_VERTICAL = 0#12.0
 var ultima_posicion_huella: Vector2
 var textura_huella_generada: Texture2D
 
+# Nodos
+@onready var camera : Camera2D = $Camera2D
+
 
 # La función _ready() se ejecuta una vez al inicio.
 func _ready():
@@ -37,6 +40,7 @@ func _ready():
 	setup_flashlight_cone()
 	
 	textura_huella_generada = _crear_textura_huella()
+	camera.make_current()
 
 
 # La función _physics_process(delta) se ejecuta en cada fotograma.
