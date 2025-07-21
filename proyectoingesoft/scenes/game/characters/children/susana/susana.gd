@@ -4,7 +4,7 @@ class_name Susana
 # --- Constantes ---
 const VELOCIDAD_CAMINAR := 40.0
 const DISTANCIA_MINIMA_DE_GERARDO := 40.0
-const DISTANCIA_MAXIMA_FREE_ROAM := 200.0 # NUEVO: Distancia máxima antes de volver a seguir
+const DISTANCIA_MAXIMA_FREE_ROAM := 200.0
 const DISTANCIA_MINIMA_OBJETIVO := 5.0
 
 # --- Estados ---
@@ -18,18 +18,28 @@ var posicion_objetivo: Vector2
 @onready var player := get_tree().get_first_node_in_group("Player")
 @onready var sprite := $AnimatedSprite2D
 @onready var free_roam_timer := $Timer
-@onready var decision_timer := $DecisionTimer # NUEVO: Referencia al nuevo timer
+@onready var decision_timer := $DecisionTimer
 @onready var path_follow := $Path2D/PathFollow2D
 
 
 func _ready() -> void:
 	free_roam_timer.timeout.connect(_on_free_roam_timer_timeout)
-	decision_timer.timeout.connect(_on_decision_timer_timeout) # NUEVO: Conectamos la señal
+	decision_timer.timeout.connect(_on_decision_timer_timeout)
 	
 	cambiar_estado_movimiento(EstadoMovimiento.FOLLOWING)
 
 
 func _physics_process(delta: float) -> void:
+	# --- ¡NUEVO! "CEREBRO" PARA DECIDIR SI VOLVER A SEGUIR ---
+	# Comprobamos si no estamos ya siguiendo a Gerardo o en una orden/script
+	if estado_movimiento == EstadoMovimiento.FREE_ROAM or estado_movimiento == EstadoMovimiento.IDLE:
+		# Si el jugador existe y se está moviendo (su velocidad es mayor que un valor pequeño)
+		if player and player.velocity.length() > 1.0:
+			print("Gerardo se está moviendo, volviendo a seguir.")
+			cambiar_estado_movimiento(EstadoMovimiento.FOLLOWING)
+	# -------------------------------------------------------------
+	
+	# La máquina de estados principal no cambia
 	match estado_movimiento:
 		EstadoMovimiento.IDLE:
 			hacer_nada()
@@ -46,8 +56,12 @@ func _physics_process(delta: float) -> void:
 	actualizar_animacion()
 
 
+# ... (El resto de las funciones: actualizar_animacion, hacer_nada, seguir_a_gerardo, etc., se quedan exactamente igual)
+# Pega el resto de tus funciones aquí sin cambios.
+# Para evitar un bloque de código masivo, solo he mostrado la parte modificada,
+# pero el resto del script (obedecer_orden, _input, etc.) debe permanecer.
+
 func actualizar_animacion():
-	# ... (esta función no cambia)
 	if velocity.length() > 0.1:
 		if abs(velocity.x) > abs(velocity.y):
 			if velocity.x > 0: sprite.play("walk right")
@@ -58,9 +72,6 @@ func actualizar_animacion():
 	else:
 		if sprite.is_playing(): sprite.stop(); sprite.frame = 0
 
-
-# --- LÓGICA DE CADA ESTADO (CON MODIFICACIONES) ---
-
 func hacer_nada():
 	velocity = Vector2.ZERO
 
@@ -69,51 +80,41 @@ func seguir_a_gerardo():
 		
 	var distancia = global_position.distance_to(player.global_position)
 	if distancia > DISTANCIA_MINIMA_DE_GERARDO:
-		# MODIFICADO: Si se está moviendo, nos aseguramos de que el timer de decisión esté parado.
 		decision_timer.stop()
 		var direccion = (player.global_position - global_position).normalized()
 		velocity = direccion * VELOCIDAD_CAMINAR
 	else:
-		# MODIFICADO: Si está cerca y quieto, iniciamos el contador para ver si se aburre.
 		if decision_timer.is_stopped():
-			decision_timer.start(5.0) # Esperará 5 segundos antes de decidir deambular
+			decision_timer.start(5.0)
 		velocity = Vector2.ZERO
 
 func moverse_en_free_roam():
-	# NUEVO: Comprobamos si el jugador se ha alejado demasiado.
 	if player and global_position.distance_to(player.global_position) > DISTANCIA_MAXIMA_FREE_ROAM:
-		print("Gerardo está muy lejos, volviendo a seguir.")
 		cambiar_estado_movimiento(EstadoMovimiento.FOLLOWING)
-		return # Salimos de la función para que el cambio de estado se aplique en el siguiente fotograma
+		return
 
-	# El resto de la lógica de deambular no cambia
 	var direccion = (posicion_objetivo - global_position).normalized()
 	velocity = direccion * VELOCIDAD_CAMINAR
 	if global_position.distance_to(posicion_objetivo) < DISTANCIA_MINIMA_OBJETIVO:
 		velocity = Vector2.ZERO
 
 func obedecer_orden():
-	# ... (esta función no cambia)
 	var direccion = (posicion_objetivo - global_position).normalized()
 	velocity = direccion * VELOCIDAD_CAMINAR
 	if global_position.distance_to(posicion_objetivo) < DISTANCIA_MINIMA_OBJETIVO:
 		cambiar_estado_movimiento(EstadoMovimiento.IDLE)
 
 func seguir_script(delta: float):
-	# ... (esta función no cambia)
 	path_follow.progress += VELOCIDAD_CAMINAR * delta
 	var direccion = (path_follow.global_position - global_position).normalized()
 	velocity = direccion * VELOCIDAD_CAMINAR
 
-
-# --- FUNCIONES PARA CAMBIAR DE ESTADO (Sin cambios) ---
 func cambiar_estado_movimiento(nuevo_estado: EstadoMovimiento) -> void:
-	if estado_movimiento == nuevo_estado: return # No cambiamos si ya estamos en ese estado
+	if estado_movimiento == nuevo_estado: return
 
 	estado_movimiento = nuevo_estado
 	print("Susana ha cambiado al estado: ", EstadoMovimiento.keys()[nuevo_estado])
 	
-	# Paramos todos los timers por defecto para evitar comportamientos extraños
 	decision_timer.stop()
 	free_roam_timer.stop()
 	
@@ -128,33 +129,17 @@ func ordenar_ir_a(punto: Vector2):
 	posicion_objetivo = punto
 	cambiar_estado_movimiento(EstadoMovimiento.OBEYING)
 
-
-# --- FUNCIONES INTERNAS Y SEÑALES ---
-
-# NUEVO: Esta función se activa cuando Susana ha estado quieta cerca de Gerardo por un tiempo.
 func _on_decision_timer_timeout():
-	print("Susana se aburrió y empezará a deambular.")
 	cambiar_estado_movimiento(EstadoMovimiento.FREE_ROAM)
 
 func _on_free_roam_timer_timeout():
-	# ... (esta función no cambia)
 	var radio = 100.0
 	posicion_objetivo = global_position + Vector2(randf_range(-radio, radio), randf_range(-radio, radio))
 	free_roam_timer.start(randf_range(3.0, 6.0))
+	
 func _input(event: InputEvent) -> void:
-	# Comprobamos si la entrada es un clic izquierdo del ratón que se acaba de presionar.
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		
-
 		if Input.is_key_pressed(KEY_SHIFT):
-			
-			# Obtenemos la posición del clic en coordenadas globales.
 			var posicion_del_clic = get_global_mouse_position()
-			
-			print("Orden recibida (desde el input de Susana) para ir a: ", posicion_del_clic)
-			
-			# Llamamos a la propia función de Susana para que se mueva.
 			ordenar_ir_a(posicion_del_clic)
-			
-			# Marcamos el evento como manejado para que otros nodos no reaccionen a este clic.
 			get_viewport().set_input_as_handled()
