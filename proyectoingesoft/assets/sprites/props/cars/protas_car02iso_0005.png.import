@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3xdgvvceb62c"
-path="res://.godot/imported/pickuptruck01iso_0005.png-fc42d0631674a7c23a70e8c1bc298ce5.ctex"
+uid="uid://bbcm6oxx1xsgg"
+path="res://.godot/imported/protas_car02iso_0005.png-140b753b506d493f41503266535613aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/pickuptruck01iso_0005.png"
-dest_files=["res://.godot/imported/pickuptruck01iso_0005.png-fc42d0631674a7c23a70e8c1bc298ce5.ctex"]
+source_file="res://assets/sprites/props/cars/protas_car02iso_0005.png"
+dest_files=["res://.godot/imported/protas_car02iso_0005.png-140b753b506d493f41503266535613aa.ctex"]
 
 [params]
 

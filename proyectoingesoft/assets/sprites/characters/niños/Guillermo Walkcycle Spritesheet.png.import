@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clwt7d8053gt5"
-path="res://.godot/imported/Susana Walkcycle Spritesheet.png-16ebf9768b2cc473301d298c4aa8165a.ctex"
+uid="uid://djodh6ecmlp8m"
+path="res://.godot/imported/Guillermo Walkcycle Spritesheet.png-4f99c30d66681d0b80b4b1ec651e775f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/niños/Susana Walkcycle Spritesheet.png"
-dest_files=["res://.godot/imported/Susana Walkcycle Spritesheet.png-16ebf9768b2cc473301d298c4aa8165a.ctex"]
+source_file="res://assets/sprites/characters/niños/Guillermo Walkcycle Spritesheet.png"
+dest_files=["res://.godot/imported/Guillermo Walkcycle Spritesheet.png-4f99c30d66681d0b80b4b1ec651e775f.ctex"]
 
 [params]
 

@@ -13,7 +13,6 @@ config_version=5
 config/name="ProyectoIngesoft"
 run/main_scene="uid://dl4uw6t5kfrqr"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://assets/audio/icon.svg"
 
 [autoload]
 
@@ -43,7 +42,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://assets/": "orange"
+"res://assets/": "orange",
+"res://scenes/": "green"
 }
 
 [global_group]
@@ -53,6 +53,8 @@ Player=""
 VehicleStops=""
 Soldiers=""
 navigation=""
+CastVehicle=""
+CastChildren=""
 
 [input]
 

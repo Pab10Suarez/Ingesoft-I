@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://b6ja61hng1ukp"]
+[gd_scene load_steps=20 format=3 uid="uid://pkfjxuf1ia3c"]
 
-[ext_resource type="Script" uid="uid://17hvymo4fp0j" path="res://scenes/game/characters/children/susana/susana.gd" id="1_1q543"]
-[ext_resource type="Texture2D" uid="uid://clwt7d8053gt5" path="res://assets/sprites/characters/niños/Susana Walkcycle Spritesheet.png" id="3_algj1"]
+[ext_resource type="Script" uid="uid://17hvymo4fp0j" path="res://scenes/game/characters/children/susana/susana.gd" id="1_aifkk"]
+[ext_resource type="Texture2D" uid="uid://clwt7d8053gt5" path="res://assets/sprites/characters/niños/Susana Walkcycle Spritesheet.png" id="2_ge56u"]
 
 [sub_resource type="Animation" id="Animation_bj855"]
 resource_name = "IDLE"
@@ -16,51 +16,51 @@ radius = 11.0
 height = 42.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ahoe"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(0, 126, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_algj1"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(26, 126, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqsja"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(52, 126, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jy7m4"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(26, 0, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1rpr"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(0, 0, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnls6"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(52, 0, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0whvi"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(0, 84, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6xuu"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(26, 84, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cd7d"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(52, 84, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy5ce"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(0, 42, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vf4r"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(26, 42, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7wdl"]
-atlas = ExtResource("3_algj1")
+atlas = ExtResource("2_ge56u")
 region = Rect2(52, 42, 26, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2kv4v"]
@@ -125,7 +125,7 @@ animations = [{
 [sub_resource type="Curve2D" id="Curve2D_2vxde"]
 
 [node name="Susana" type="CharacterBody2D" groups=["CastChildren"]]
-script = ExtResource("1_1q543")
+script = ExtResource("1_aifkk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

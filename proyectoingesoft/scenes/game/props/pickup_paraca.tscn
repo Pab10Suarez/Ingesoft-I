@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c8cykp4dmxe0e"]
 
 [ext_resource type="Script" uid="uid://nr3sm04n4e8v" path="res://scenes/game/props/pickup_paraca.gd" id="1_4rp4p"]
-[ext_resource type="Texture2D" uid="uid://c3xdgvvceb62c" path="res://assets/sprites/pickuptruck01iso_0005.png" id="1_20ry3"]
+[ext_resource type="Texture2D" uid="uid://c3xdgvvceb62c" path="res://assets/sprites/props/cars/pickuptruck01iso_0005.png" id="1_20ry3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rp4p"]
 size = Vector2(72, 62.5)

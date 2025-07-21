@@ -141,6 +141,7 @@ func _on_free_roam_timer_timeout():
 	var radio = 100.0
 	posicion_objetivo = global_position + Vector2(randf_range(-radio, radio), randf_range(-radio, radio))
 	free_roam_timer.start(randf_range(3.0, 6.0))
+
 func _input(event: InputEvent) -> void:
 	# Comprobamos si la entrada es un clic izquierdo del ratón que se acaba de presionar.
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clwt7d8053gt5"
-path="res://.godot/imported/Susana Walkcycle Spritesheet.png-16ebf9768b2cc473301d298c4aa8165a.ctex"
+uid="uid://c3xdgvvceb62c"
+path="res://.godot/imported/pickuptruck01iso_0005.png-98924d8338539518c966756484a13e71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/niños/Susana Walkcycle Spritesheet.png"
-dest_files=["res://.godot/imported/Susana Walkcycle Spritesheet.png-16ebf9768b2cc473301d298c4aa8165a.ctex"]
+source_file="res://assets/sprites/props/cars/pickuptruck01iso_0005.png"
+dest_files=["res://.godot/imported/pickuptruck01iso_0005.png-98924d8338539518c966756484a13e71.ctex"]
 
 [params]
 
