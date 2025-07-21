@@ -167,3 +167,7 @@ static func loop_walk_up() -> void:
 static func stop_animation() -> void:
 	sprite.stop()
 	sprite.frame = 0
+
+func start_dialogue() -> void:
+	print("Start_dialogue llamao")
+	$DialogueManager.start_dialogue()

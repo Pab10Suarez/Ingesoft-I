@@ -169,3 +169,6 @@ func _input(event: InputEvent) -> void:
 			
 			# Esta línea es CLAVE: solo se ejecuta si la orden era para él
 			get_viewport().set_input_as_handled()
+			
+func start_dialogue() -> void:
+	$DialogueManager.start_dialogue()

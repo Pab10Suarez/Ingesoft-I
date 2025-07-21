@@ -24,7 +24,7 @@ Gerardo: [#mood=alterado] Chito, viene un carro, ¡Vengan! [do GameManager.trans
 Gerardo: Susana, escúchame bien... Yo sé que estás asustada.
 Gerardo: Pero [pulse]tú[/pulse] eres la hermana mayor...
 Gerardo: Necesito que hagas algo por nosotros, sí?.
-Gerardo: Vas a tener que correr hasta el carro que está parqueado allá.
+Gerardo: Vas a tener que correr hasta la camioneta en la que llegaron.
 Gerardo: No pasa nada... van a estar mirando para otro lado.
 Gerardo: Cuando llegues vas a girar la llave que está debajo del manubrio y te la guardas en el bolsillo.
 Gerardo: Se van a asustar, sal corriendo y estate pendiente de mi linterna.
@@ -32,5 +32,11 @@ Gerardo: Ahí es donde estaremos. [do GameManager.send_kid_to_turn_off_truck(Gam
 => END
 
 ~ GuillermoApagaCarro
+Gerardo: Guillermo, ven... ¿Cómo estás?, ¿todo bien?.
+Gerardo: Has sido muy valiente, te agradezco mucho por ayudarme a cuidar a tu hermana. 
+Gerardo: Cuando yo no esté tú serás el hombre de la familia, tienes que empezar a cuidar de ella.
+Gerardo: Vas a tener que hacer algo difícil, pero necesito que seas [shake]fuerte[/shake]...
+Gerardo: ¿Ves ese carro?, necesitamos que vayas y gires la llave de debajo del volante para que se apague
+Gerardo: Cuando lo hagas, sales corriendo hacia el frente y estate pendiente de mi linterna para que nos volvamos a encontrar
 => END
 

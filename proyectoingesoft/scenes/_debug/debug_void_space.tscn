@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c23odaggjxtfs"]
+
+[ext_resource type="PackedScene" uid="uid://dei2ljm6liirt" path="res://scenes/game/characters/player/player.tscn" id="1_bu87g"]
+[ext_resource type="PackedScene" uid="uid://b6ja61hng1ukp" path="res://scenes/game/characters/children/susana/susana.tscn" id="2_5rrn8"]
+[ext_resource type="PackedScene" uid="uid://bl7lbt8ptxx3b" path="res://scenes/game/characters/children/guillermo/guillermo.tscn" id="3_5rrn8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_bu87g")]
+position = Vector2(-51, 18)
+
+[node name="Susana" parent="." instance=ExtResource("2_5rrn8")]
+position = Vector2(19, 18)
+
+[node name="Guillermo" parent="." instance=ExtResource("3_5rrn8")]
+position = Vector2(-97, 13)

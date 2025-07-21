@@ -22,11 +22,13 @@ var last_direction: Vector2 = Vector2.RIGHT
 const DISTANCIA_HUELLA = 20#80.0 # ¡MODIFICADO! Más distancia entre cada par de huellas.
 const DESPLAZAMIENTO_HUELLA_LATERAL = 0#4.0
 const DESPLAZAMIENTO_HUELLA_VERTICAL = 0#12.0
+const RAYCAST_LENGTH : float = 30
 var ultima_posicion_huella: Vector2
 var textura_huella_generada: Texture2D
 
 # Nodos
 @onready var camera : Camera2D = $Camera2D
+@onready var interaction_raycast : RayCast2D = $RayCast2D
 
 # Señales
 
@@ -55,6 +57,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_up"): direction.y -= 1
 	
 	direction = direction.normalized()
+	if direction != Vector2.ZERO:
+		interaction_raycast.target_position = direction * RAYCAST_LENGTH
 	velocity = direction * SPEED
 	move_and_slide()
 	
@@ -200,3 +204,9 @@ func _input(event):
 			pickup_flashlight()
 		else:
 			reset_state()
+	if event.is_action_pressed("ui_accept"):
+		var dialogue_target = interaction_raycast.get_collider()
+		if dialogue_target == null:
+			return
+		if dialogue_target.has_method("start_dialogue"):
+			dialogue_target.start_dialogue()

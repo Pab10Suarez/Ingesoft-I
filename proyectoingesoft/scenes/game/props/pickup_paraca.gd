@@ -54,7 +54,7 @@ func _on_stop_detection_area_entered(area: Area2D) -> void:
 	_script_demo()
 		
 func _script_demo() -> void:
-	await get_tree().create_timer(2)
+	await get_tree().create_timer(2).timeout
 	var guardia_hernan : RigidBody2D = soldier_scene.instantiate()
 	var guardia_juanfe : RigidBody2D = soldier_scene.instantiate()
 	
