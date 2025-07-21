@@ -1,5 +1,7 @@
 extends Node
 
+var debug := false
+
 enum Children {
 	SUSANA,
 	CLAUDIO,
@@ -35,7 +37,11 @@ func send_kid_to_turn_off_truck(kid : Children) -> void:
 		Children.GUILLERMO:
 			guillermo_ref.ordenar_ir_a(truck_position)
 			
-	
+func show_next_tooltip() -> void:
+	gerardo_ref.next_tooltip()
+
 func _input(event: InputEvent) -> void:
-	if event.is_action("ui_cancel"):
-		send_kid_to_turn_off_truck(Children.SUSANA)
+	if Input.is_action_just_pressed("ui_cancel"):
+		show_next_tooltip()
+
+		#send_kid_to_turn_off_truck(Children.SUSANA)

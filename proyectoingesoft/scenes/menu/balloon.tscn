@@ -68,7 +68,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 
 [sub_resource type="Theme" id="Theme_hmgs1"]
 
-[node name="ExampleBalloon" type="CanvasLayer"]
+[node name="ExampleBalloon" type="CanvasLayer" groups=["DialogueBalloons"]]
 layer = 100
 script = ExtResource("1_36de5")
 

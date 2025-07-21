@@ -131,13 +131,6 @@ shape = SubResource("RectangleShape2D_onrkg")
 position = Vector2(0, -20)
 zoom = Vector2(6.09, 6.09)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 63.0
-offset_top = -110.0
-offset_right = 157.0
-offset_bottom = -87.0
-text = "EstadoLabel"
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_83txs")
@@ -151,3 +144,32 @@ texture = SubResource("GradientTexture2D_44xbp")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 modulate = Color(1, 0, 1, 1)
 collision_mask = 2
+
+[node name="Node" type="Node2D" parent="."]
+
+[node name="TutorialF" type="RichTextLabel" parent="Node"]
+visible = false
+offset_left = -143.0
+offset_top = -107.0
+offset_right = 144.0
+offset_bottom = -38.0
+text = "Presiona E para crear un rastro falso"
+fit_content = true
+
+[node name="TutorialQ" type="RichTextLabel" parent="Node"]
+visible = false
+offset_left = -143.0
+offset_top = -107.0
+offset_right = 144.0
+offset_bottom = -38.0
+text = "Presiona Q para borrar el rastro"
+fit_content = true
+
+[node name="TutorialFL" type="RichTextLabel" parent="Node"]
+visible = false
+offset_left = -143.0
+offset_top = -107.0
+offset_right = 144.0
+offset_bottom = -38.0
+text = "Presiona F para iluminar con la linterna"
+fit_content = true

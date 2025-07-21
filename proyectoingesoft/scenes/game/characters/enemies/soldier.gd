@@ -6,6 +6,7 @@ class_name Paraco
 const SPEED : float = 0.7
 
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
+@onready var anim_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 enum STATES{
 	PERSECUTION,
@@ -65,9 +66,15 @@ func _assign_script() -> void:
 			assert(false, "Nombre no reconocido de paraco")
 
 func _script_juanfe() -> void:
-	nav_agent.target_position = get_tree().get_first_node_in_group("Soldiers").global_position + Vector2(-50, -40) # Hernán es el primero
+	nav_agent.target_position = get_tree().get_first_node_in_group("Soldiers").global_position #+ Vector2(-50, -40) # Hernán es el primero
 	await nav_agent.navigation_finished
-	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/juanfe_dialogue_1.dialogue"))
+	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/juanfe_dialogue_1.dialogue"), "ParacosP1")
+	await DialogueManager.dialogue_ended
+	while get_tree().get_nodes_in_group("Footprints").size() == 0:
+		await get_tree().process_frame
+	nav_agent.target_position = get_tree().get_first_node_in_group("Footprints").global_position
+	await nav_agent.navigation_finished
+	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/juanfe_dialogue_1.dialogue"), "ParacosP2")
 	
 func _script_hernan() -> void:
 	pass
@@ -79,5 +86,12 @@ func _move_towards_target() -> void:
 	var direction = Vector3()
 	direction = nav_agent.get_next_path_position() - global_position
 	direction = direction.normalized() * SPEED
+	
+	if direction.length_squared() < 0.2:
+		anim_sprite.stop()
+		return
+		
+	anim_sprite.play("walk_right")
+	anim_sprite.flip_h = direction.x < 0
 	move_and_collide(direction)
 #endregion

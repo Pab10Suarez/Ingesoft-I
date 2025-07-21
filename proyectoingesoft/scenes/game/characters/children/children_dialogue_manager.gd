@@ -12,6 +12,8 @@ func _ready() -> void:
 func start_dialogue() -> void:
 	if SaveManager.level != SaveManager.LEVELS.DEMO_GAMEPLAY:
 		return
+	if get_tree().get_nodes_in_group("DialogueBalloons").size() != 0:
+		return
 	
 	match progreso:
 		0:

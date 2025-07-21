@@ -1,10 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://do2epfax2nr6u"]
+[gd_scene load_steps=11 format=3 uid="uid://do2epfax2nr6u"]
 
 [ext_resource type="Script" uid="uid://dax5o5oritoeo" path="res://scenes/game/characters/enemies/soldier.gd" id="1_f0i0b"]
 [ext_resource type="Texture2D" uid="uid://buhxsq88der3j" path="res://assets/sprites/characters/soldiers/soviet_soldiers.png" id="1_wrk0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0033m"]
 size = Vector2(15, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0i0b"]
+atlas = ExtResource("1_wrk0l")
+region = Rect2(133, 0, 63, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaqvo"]
+atlas = ExtResource("1_wrk0l")
+region = Rect2(7, 0, 63, 76)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii3is"]
+atlas = ExtResource("1_wrk0l")
+region = Rect2(70, 0, 63, 76)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dghy2"]
 atlas = ExtResource("1_wrk0l")
@@ -25,7 +37,16 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0i0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaqvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii3is")
+}],
 "loop": true,
 "name": &"walk_left",
 "speed": 5.0

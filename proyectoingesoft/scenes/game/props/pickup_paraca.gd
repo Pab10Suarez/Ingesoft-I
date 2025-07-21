@@ -15,16 +15,20 @@ static var current_state = STATES.OFF:
 			STATES.ON:
 				_turn_on()
 			STATES.RUNNING:
+				_turn_on()
 				start_march()
 			STATES.OFF:
 				_turn_off()
 		current_state = v
 		
 static var anim_player : AnimationPlayer 
+static var sfx : AudioStreamPlayer2D
 
 func _ready() -> void:
 	#current_state = STATES.RUNNING
 	anim_player = $AnimationPlayer
+	sfx = $Engine
+	
 	GameManager.ref_pickup = self
 	pass
 	
@@ -35,10 +39,11 @@ func _physics_process(delta: float) -> void:
 	
 static func _turn_on() -> void:
 	anim_player.play("engine_on")
+	sfx.stop()
 	# Sonido de motor
 
 static func start_march() -> void:
-	#current_state = STATES.RUNNING
+	sfx.play(2)
 	pass
 
 static func _turn_off() -> void:
@@ -67,5 +72,7 @@ func _script_demo() -> void:
 	guardia_juanfe.global_position = global_position + Vector2(50, 0)
 	
 	get_tree().root.add_child(guardia_hernan)
+	$CarDoor.play(3.5)
 	await get_tree().create_timer(1).timeout
 	get_tree().root.add_child(guardia_juanfe)
+	$CarDoor.play(3.5)

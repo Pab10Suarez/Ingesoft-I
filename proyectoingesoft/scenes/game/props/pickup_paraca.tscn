@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8cykp4dmxe0e"]
+[gd_scene load_steps=15 format=3 uid="uid://c8cykp4dmxe0e"]
 
 [ext_resource type="Script" uid="uid://nr3sm04n4e8v" path="res://scenes/game/props/pickup_paraca.gd" id="1_4rp4p"]
 [ext_resource type="Texture2D" uid="uid://c3xdgvvceb62c" path="res://assets/sprites/props/cars/pickuptruck01iso_0005.png" id="1_20ry3"]
+[ext_resource type="AudioStream" uid="uid://v2x3hfrxo4ki" path="res://assets/audio/props/cars/Jeep-Truck-On-Dirt-Road-Sound-Effect.ogg" id="2_h3cdj"]
+[ext_resource type="AudioStream" uid="uid://cw5thyrflci1w" path="res://assets/audio/props/cars/Car-Door-Open-and-Close-Sound-Effect-_HD_.ogg" id="2_sw22e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rp4p"]
 size = Vector2(72, 62.5)
@@ -62,6 +64,16 @@ use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 1)
 
+[sub_resource type="Gradient" id="Gradient_4rp4p"]
+offsets = PackedFloat32Array(0, 0.386905)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sw22e"]
+gradient = SubResource("Gradient_4rp4p")
+fill = 1
+fill_from = Vector2(0.521552, 0.25431)
+fill_to = Vector2(0.534483, 1)
+
 [node name="PickupParaca" type="AnimatableBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -86,7 +98,12 @@ libraries = {
 &"": SubResource("AnimationLibrary_h3cdj")
 }
 
+[node name="CarDoor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_sw22e")
+
 [node name="Engine" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_h3cdj")
+volume_db = 14.857
 
 [node name="HeadlightL" type="PointLight2D" parent="."]
 position = Vector2(-11.5, -372)
@@ -99,6 +116,22 @@ position = Vector2(14.14, -372)
 scale = Vector2(0.378906, 2.66406)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_h3cdj")
+
+[node name="TailLightR" type="PointLight2D" parent="."]
+position = Vector2(33, 35)
+scale = Vector2(0.378906, 0.55078)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_sw22e")
+
+[node name="TailLightL" type="PointLight2D" parent="."]
+position = Vector2(-32, 35)
+scale = Vector2(0.378906, 0.55078)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_sw22e")
 
 [node name="CarSprite" type="Sprite2D" parent="."]
 light_mask = 2

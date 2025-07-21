@@ -3,7 +3,7 @@ class_name Guillermo
 
 # --- Constantes (Personalidad de Guillermo: lento y tímido) ---
 const VELOCIDAD_CAMINAR := 0.7
-const DISTANCIA_MINIMA_DE_GERARDO := 30.0
+const DISTANCIA_MINIMA_DE_GERARDO := 20
 const DISTANCIA_MAXIMA_FREE_ROAM := 150.0
 const DISTANCIA_MINIMA_OBJETIVO := 5.0
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnigdrk66htrj"]
+[gd_scene load_steps=9 format=3 uid="uid://cnigdrk66htrj"]
 
 [ext_resource type="Script" uid="uid://rx2hmhum280v" path="res://scenes/game/props/carro_protas.gd" id="1_467qq"]
 [ext_resource type="Texture2D" uid="uid://bbcm6oxx1xsgg" path="res://assets/sprites/props/cars/protas_car02iso_0005.png" id="1_xf5ur"]
 [ext_resource type="AudioStream" uid="uid://boybq5qxgvce8" path="res://assets/audio/props/cars/Car-Not-Starting-Sound-Effect.ogg" id="2_w46y2"]
+[ext_resource type="AudioStream" uid="uid://cw5thyrflci1w" path="res://assets/audio/props/cars/Car-Door-Open-and-Close-Sound-Effect-_HD_.ogg" id="4_nu3ux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dghy2"]
 size = Vector2(58.9048, 57.253)
@@ -66,3 +67,6 @@ stream = ExtResource("2_w46y2")
 libraries = {
 &"": SubResource("AnimationLibrary_467qq")
 }
+
+[node name="CarDoor" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_nu3ux")

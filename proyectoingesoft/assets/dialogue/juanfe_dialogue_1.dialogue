@@ -1,9 +1,21 @@
-~ start
-???: ...Pues pa' mi como mucha chiripa una bruja haciendo bulla y este carro ahí tirao'
-???: [i] Dígale al comandante. No lo van a dejar ahí, ¿luego echar dedo hasta Bogotá? O qué... [/i]
-???: Pero qué maricada... Digale más bien a Pérez que venga a revisar, que yo estoy que me casco por una cerveza, mano.
-???: [i] Hágale [/i]
+~ ParacosP1
+???: [font_size=20]...Pues pa' mi como mucha chiripa una bruja haciendo bulla y este carro ahí tirao'
+???: [font_size=20][i] Dígale al comandante. No lo van a dejar ahí, ¿luego echar dedo hasta Bogotá? O qué... [/i]
+???: [font_size=20]Pero qué maricada... Digale más bien a Pérez que venga a revisar, que yo estoy que me casco por una cerveza, mano.
+???: [font_size=20][i] Hágale [/i]
 [next=1]
-???: [i] Mi teniente, tenemos un carro aquí parqueado sin nadie en la vía. Yo lo veo bien muerto. Estamos con herrera camino al sector 7 que dizque alguien se metió a robar... [/i]
-???: Que habla mierda, jajaja
+???: [font_size=20][i] Mi teniente, tenemos un carro aquí parqueado sin nadie en la vía. Yo lo veo bien muerto. Estamos con herrera camino al sector 7 que dizque alguien se metió a robar... [/i]
+???: [font_size=20]Que habla mierda, jajaja
+???: [font_size=20]¿Sabe qué?, revisemos el carro para estar seguros
+[wait=3]
+Gerardo: Haré un rastro falso para despistarlos [do GameManager.show_next_tooltip()]
 => END
+
+~ ParacosP2
+???: [font_size=20] Uy aquí hay unas huellas
+???: [font_size=20] ¡Oiga venga, aquí hay unas huellas!
+???: [font_size=20] [i] ¿Parecen una costra? [/i]
+???: [font_size=20] ¿Qué?
+Gerardo: Perfecto, ahora solo necesito que uno de los niños se 
+???: [font_size=20] [i] Que si se ven secas [/i]
+???: [font_size=20] Uy no sé, a ver

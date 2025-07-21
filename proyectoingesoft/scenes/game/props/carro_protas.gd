@@ -47,6 +47,8 @@ func _eject_characters() -> void:
 	gerardo.global_position = global_position + Vector2(-50, 30)
 	guillermo.global_position = global_position + Vector2(-50, 60)
 	
+	$CarDoor.play(3.5)
+	
 	get_tree().root.add_child(guillermo)
 	get_tree().root.add_child(gerardo)
 	

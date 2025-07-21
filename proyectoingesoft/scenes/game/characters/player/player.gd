@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Gerardo
 
 const SPEED = 50
-
+var debug : int = 0
 # --- ESTADOS DEL JUGADOR ---
 enum PlayerState { NORMAL, CON_LINTERNA, CON_MACHETE }
 var state: PlayerState = PlayerState.NORMAL
@@ -31,6 +31,8 @@ var textura_huella_generada: Texture2D
 @onready var interaction_raycast : RayCast2D = $RayCast2D
 
 # Señales
+signal flashlight_on
+signal new_footprint
 
 # La función _ready() se ejecuta una vez al inicio.
 func _ready():
@@ -88,7 +90,7 @@ func _physics_process(delta):
 			dejar_huellas_par()
 			
 	# --- 5. ACTUALIZAR INTERFAZ (UI) ---
-	label.text = "Estado: " + get_estado_nombre()
+	#label.text = "Estado: " + get_estado_nombre()
 
 
 # --- FUNCIONES AUXILIARES ---
@@ -115,17 +117,22 @@ func dejar_huellas_par():
 
 
 func _crear_una_huella_en(posicion: Vector2):
+	if not Input.is_action_pressed("heavy_step"):
+		return
 	var huella = Sprite2D.new()
 	huella.texture = textura_huella_generada
+	huella.add_to_group("Footprints")
 	get_parent().add_child(huella)
+	if get_tree().get_nodes_in_group("Footprints").size() > 5 and not $Node/TutorialQ.visible:
+		GameManager.show_next_tooltip()
 	
 	huella.global_position = posicion
 	huella.rotation = last_direction.angle() + PI / 2.0
 	
-	var tween = create_tween()
-	tween.tween_interval(3.0) 
-	tween.tween_property(huella, "modulate:a", 0, 1.5)
-	tween.tween_callback(huella.queue_free)
+	#var tween = create_tween()
+	#tween.tween_interval(3.0) 
+	#tween.tween_property(huella, "modulate:a", 0, 1.5)
+	#tween.tween_callback(huella.queue_free)
 
 
 func _crear_textura_huella() -> Texture2D:
@@ -197,6 +204,18 @@ func reset_state():
 	state = PlayerState.NORMAL
 	print("Estado normal.")
 
+func next_tooltip() -> void:
+	match debug:
+		0:
+			$Node/TutorialF.visible = true
+		1:
+			$Node/TutorialF.visible = false
+			$Node/TutorialQ.visible = true
+		2:
+			$Node/TutorialQ.visible = false
+			$Node/TutorialFL.visible = true
+	debug += 1
+
 # Puedes usar _input para pruebas rápidas
 func _input(event):
 	if event.is_action_pressed("tool_on_hand"):
@@ -204,9 +223,12 @@ func _input(event):
 			pickup_flashlight()
 		else:
 			reset_state()
-	if event.is_action_pressed("ui_accept"):
+	elif event.is_action_pressed("ui_accept"):
 		var dialogue_target = interaction_raycast.get_collider()
 		if dialogue_target == null:
 			return
 		if dialogue_target.has_method("start_dialogue"):
 			dialogue_target.start_dialogue()
+	elif event.is_action_pressed("cover_footprints"):
+		for footprint in get_tree().get_nodes_in_group("Footprints"):
+			footprint.queue_free()

@@ -156,7 +156,6 @@ curve = SubResource("Curve2D_2vxde")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="DialogueManager" type="Node" parent="."]
 script = ExtResource("3_sqsja")
