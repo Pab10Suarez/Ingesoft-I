@@ -11,17 +11,16 @@ _data = {
 &"IDLE": SubResource("Animation_bj855")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ahoe"]
-radius = 11.0
-height = 42.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ahoe"]
-atlas = ExtResource("3_algj1")
-region = Rect2(0, 126, 26, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ahoe"]
+size = Vector2(8, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_algj1"]
 atlas = ExtResource("3_algj1")
 region = Rect2(26, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ahoe"]
+atlas = ExtResource("3_algj1")
+region = Rect2(0, 126, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqsja"]
 atlas = ExtResource("3_algj1")
@@ -39,25 +38,25 @@ region = Rect2(0, 0, 26, 42)
 atlas = ExtResource("3_algj1")
 region = Rect2(52, 0, 26, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0whvi"]
-atlas = ExtResource("3_algj1")
-region = Rect2(0, 84, 26, 42)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6xuu"]
 atlas = ExtResource("3_algj1")
 region = Rect2(26, 84, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0whvi"]
+atlas = ExtResource("3_algj1")
+region = Rect2(0, 84, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cd7d"]
 atlas = ExtResource("3_algj1")
 region = Rect2(52, 84, 26, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wy5ce"]
-atlas = ExtResource("3_algj1")
-region = Rect2(0, 42, 26, 42)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vf4r"]
 atlas = ExtResource("3_algj1")
 region = Rect2(26, 42, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy5ce"]
+atlas = ExtResource("3_algj1")
+region = Rect2(0, 42, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7wdl"]
 atlas = ExtResource("3_algj1")
@@ -67,10 +66,10 @@ region = Rect2(52, 42, 26, 42)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6ahoe")
+"texture": SubResource("AtlasTexture_algj1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_algj1")
+"texture": SubResource("AtlasTexture_6ahoe")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sqsja")
@@ -95,10 +94,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0whvi")
+"texture": SubResource("AtlasTexture_w6xuu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w6xuu")
+"texture": SubResource("AtlasTexture_0whvi")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1cd7d")
@@ -109,10 +108,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wy5ce")
+"texture": SubResource("AtlasTexture_1vf4r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1vf4r")
+"texture": SubResource("AtlasTexture_wy5ce")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q7wdl")
@@ -133,11 +132,14 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6ahoe")
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_6ahoe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -17.17)
 sprite_frames = SubResource("SpriteFrames_2kv4v")
-animation = &"walk right"
+animation = &"walk_up"
+frame_progress = 0.433301
 
 [node name="DecisionTimer" type="Timer" parent="."]
 one_shot = true

@@ -11,21 +11,8 @@ _data = {
 &"IDLE": SubResource("Animation_bj855")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ahoe"]
-radius = 11.0
-height = 42.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qe1p"]
-atlas = ExtResource("2_6ojg8")
-region = Rect2(0, 126, 26, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f0gbj"]
-atlas = ExtResource("2_6ojg8")
-region = Rect2(26, 126, 26, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qh28r"]
-atlas = ExtResource("2_6ojg8")
-region = Rect2(52, 126, 26, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ojg8"]
+size = Vector2(11, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lj8tk"]
 atlas = ExtResource("2_6ojg8")
@@ -51,6 +38,18 @@ region = Rect2(26, 84, 26, 42)
 atlas = ExtResource("2_6ojg8")
 region = Rect2(52, 84, 26, 42)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qe1p"]
+atlas = ExtResource("2_6ojg8")
+region = Rect2(0, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0gbj"]
+atlas = ExtResource("2_6ojg8")
+region = Rect2(26, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh28r"]
+atlas = ExtResource("2_6ojg8")
+region = Rect2(52, 126, 26, 42)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_lx6im"]
 atlas = ExtResource("2_6ojg8")
 region = Rect2(0, 42, 26, 42)
@@ -65,20 +64,6 @@ region = Rect2(52, 42, 26, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2kv4v"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6qe1p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f0gbj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qh28r")
-}],
-"loop": true,
-"name": &"walk right",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lj8tk")
@@ -109,6 +94,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6qe1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0gbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh28r")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_lx6im")
 }, {
 "duration": 1.0,
@@ -134,11 +133,14 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_6ahoe")
+position = Vector2(-0.855, 0.5)
+shape = SubResource("RectangleShape2D_6ojg8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-2, -14)
 sprite_frames = SubResource("SpriteFrames_2kv4v")
-animation = &"walk_down"
+animation = &"walk_right"
 
 [node name="DecisionTimer" type="Timer" parent="."]
 one_shot = true

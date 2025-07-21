@@ -9,23 +9,24 @@ const DISTANCIA_MINIMA_OBJETIVO := 5.0
 
 # --- Estados ---
 enum EstadoMovimiento { IDLE, FOLLOWING, FREE_ROAM, OBEYING, SCRIPT }
-var estado_movimiento: EstadoMovimiento = EstadoMovimiento.IDLE
+var estado_movimiento: EstadoMovimiento = EstadoMovimiento.SCRIPT
 
 # --- Variables de estado ---
 var posicion_objetivo: Vector2
 
 # --- Referencias a Nodos ---
 @onready var player := get_tree().get_first_node_in_group("Player")
-@onready var sprite := $AnimatedSprite2D
+static var sprite : AnimatedSprite2D
 @onready var free_roam_timer := $Timer
 @onready var decision_timer := $DecisionTimer
 @onready var path_follow := $Path2D/PathFollow2D
 
 
 func _ready() -> void:
+	sprite = $AnimatedSprite2D
 	free_roam_timer.timeout.connect(_on_free_roam_timer_timeout)
 	decision_timer.timeout.connect(_on_decision_timer_timeout)
-	cambiar_estado_movimiento(EstadoMovimiento.FOLLOWING)
+	#cambiar_estado_movimiento(EstadoMovimiento.FOLLOWING)
 
 
 func _physics_process(delta: float) -> void:
@@ -61,8 +62,8 @@ func actualizar_animacion():
 		else:
 			if velocity.y > 0: sprite.play("walk_down")
 			else: sprite.play("walk_up")
-	else:
-		if sprite.is_playing(): sprite.stop(); sprite.frame = 0
+	elif sprite.is_playing() and estado_movimiento != EstadoMovimiento.SCRIPT: 
+		stop_animation()
 
 
 func hacer_nada():
@@ -157,3 +158,10 @@ func _input(event: InputEvent) -> void:
 			
 			# Esta línea es CLAVE: solo se ejecuta si la orden era para él
 			get_viewport().set_input_as_handled()
+
+static func loop_walk_up() -> void:
+	sprite.play("walk_up")
+	
+static func stop_animation() -> void:
+	sprite.stop()
+	sprite.frame = 0

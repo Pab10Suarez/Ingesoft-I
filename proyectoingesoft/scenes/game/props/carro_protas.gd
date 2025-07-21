@@ -13,12 +13,20 @@ func _ready() -> void:
 	_script_intro()
 	
 func _script_intro() -> void:		# Primer script en ejecutarse
+	await get_tree().create_timer(2).timeout
+	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/cast_in_car.dialogue"), "Part1")
+	await DialogueManager.dialogue_ended
+	
 	_fail_to_turn_on()
 	while throttle_sfx.playing:
 		await get_tree().process_frame
 	_fail_to_turn_on()
+	while throttle_sfx.playing:
+		await get_tree().process_frame
+	_rest()
 	
-	
+	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/cast_in_car.dialogue"), "Part2")
+	await DialogueManager.dialogue_ended
 	_eject_characters()
 
 func _fail_to_turn_on() -> void:

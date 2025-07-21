@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://dqrqs57i3jetv"]
+[gd_scene load_steps=14 format=4 uid="uid://dqrqs57i3jetv"]
 
 [ext_resource type="TileSet" uid="uid://b51bxyxgngnf7" path="res://assets/resources/tiles/tile_set_ground.tres" id="1_xj4ym"]
 [ext_resource type="TileSet" uid="uid://rn8pucu56cq0" path="res://assets/resources/tiles/tile_set_nature.tres" id="2_4svh4"]
 [ext_resource type="AudioStream" uid="uid://bkcx3vomg3r76" path="res://assets/audio/ambients/moorland_ambient.ogg" id="3_5radx"]
+[ext_resource type="PackedScene" uid="uid://do2epfax2nr6u" path="res://scenes/game/characters/enemies/soldier.tscn" id="5_6lch3"]
 [ext_resource type="PackedScene" uid="uid://c8cykp4dmxe0e" path="res://scenes/game/props/pickup_paraca.tscn" id="5_0033m"]
 [ext_resource type="PackedScene" uid="uid://cnigdrk66htrj" path="res://scenes/game/props/carro_protas.tscn" id="6_5uu1i"]
 [ext_resource type="PackedScene" uid="uid://b6ja61hng1ukp" path="res://scenes/game/characters/children/susana/susana.tscn" id="6_dghy2"]
@@ -81,6 +82,7 @@ texture = SubResource("GradientTexture2D_loo3v")
 
 [node name="PickupParaca" parent="." instance=ExtResource("5_0033m")]
 position = Vector2(172, 500)
+soldier_scene = ExtResource("5_6lch3")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_0033m")
