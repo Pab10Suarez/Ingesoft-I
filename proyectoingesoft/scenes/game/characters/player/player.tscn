@@ -42,13 +42,13 @@ region = Rect2(26, 126, 26, 42)
 atlas = ExtResource("2_44xbp")
 region = Rect2(52, 126, 26, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dkv41"]
-atlas = ExtResource("2_44xbp")
-region = Rect2(0, 84, 26, 42)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2bkr"]
 atlas = ExtResource("2_44xbp")
 region = Rect2(26, 84, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkv41"]
+atlas = ExtResource("2_44xbp")
+region = Rect2(0, 84, 26, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kcykp"]
 atlas = ExtResource("2_44xbp")
@@ -100,10 +100,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dkv41")
+"texture": SubResource("AtlasTexture_g2bkr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g2bkr")
+"texture": SubResource("AtlasTexture_dkv41")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kcykp")
@@ -129,13 +129,13 @@ shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -20)
-zoom = Vector2(3, 3)
+zoom = Vector2(6.09, 6.09)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 64.0
-offset_top = -133.0
-offset_right = 158.0
-offset_bottom = -110.0
+offset_left = 63.0
+offset_top = -110.0
+offset_right = 157.0
+offset_bottom = -87.0
 text = "EstadoLabel"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://buhxsq88der3j" path="res://assets/sprites/characters/soldiers/soviet_soldiers.png" id="1_wrk0l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0033m"]
-size = Vector2(15, 11)
+size = Vector2(15, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dghy2"]
 atlas = ExtResource("1_wrk0l")
@@ -61,6 +61,11 @@ position = Vector2(7, -16)
 scale = Vector2(0.532258, 0.5)
 sprite_frames = SubResource("SpriteFrames_0033m")
 animation = &"walk_right"
-frame_progress = 0.211203
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 5.0
+target_desired_distance = 30.0
+simplify_path = true
+simplify_epsilon = 10.0
+avoidance_enabled = true
+debug_enabled = true

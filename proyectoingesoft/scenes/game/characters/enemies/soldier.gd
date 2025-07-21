@@ -21,22 +21,64 @@ enum STATES{
 		current_state = v
 
 func _ready() -> void:
-	current_state = STATES.PERSECUTION # debug
+	current_state = STATES.SCRIPT #debug
+	_assign_script()
 
 func _physics_process(delta: float) -> void:
 	match current_state:
 		STATES.PERSECUTION:
 			_persecution_state_process(delta)
+		STATES.SCRIPT:
+			_script_state_process(delta)
 	
+#region Entrance-Exit states
 func _enter_persecution_state() -> void:
 	pass
-	
+#endregion
+
+#region State Processes
 func _persecution_state_process(delta : float) -> void:
 	var direction = Vector3()
 	nav_agent.target_position = get_tree().get_first_node_in_group("Player").global_position
 	
+	_move_towards_target()
+
+func _script_state_process(delta : float) -> void:
+	if nav_agent.target_position == null:
+		return
+	elif global_position.distance_squared_to(nav_agent.target_position) < 100:
+		return
+	
+	_move_towards_target()
+	
+
+#endregion
+
+#region Character Scripts
+func _assign_script() -> void:
+	match paraco_name:
+		"Hernán":
+			_script_hernan()
+		"Juanfe":
+			_script_juanfe()
+		_:
+			assert(false, "Nombre no reconocido de paraco")
+
+func _script_juanfe() -> void:
+	nav_agent.target_position = get_tree().get_first_node_in_group("Soldiers").global_position + Vector2(-50, -40) # Hernán es el primero
+	await nav_agent.navigation_finished
+	print("reached")
+	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/juanfe_dialogue_1.dialogue"))
+	
+func _script_hernan() -> void:
+	pass
+	
+#endregion
+
+#region Movement
+func _move_towards_target() -> void:
+	var direction = Vector3()
 	direction = nav_agent.get_next_path_position() - global_position
 	direction = direction.normalized() * SPEED
-	
 	move_and_collide(direction)
-	
+#endregion

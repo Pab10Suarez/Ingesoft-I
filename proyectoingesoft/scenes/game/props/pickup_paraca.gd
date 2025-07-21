@@ -7,6 +7,7 @@ enum STATES {
 }
 
 const SPEED : float = 0.5
+@export var soldier_scene : Resource = preload("res://scenes/game/characters/enemies/soldier.tscn")
 @export var current_state = STATES.OFF:
 	set(v):
 		match v:
@@ -32,14 +33,34 @@ func _turn_on() -> void:
 	anim_player.play("engine_on")
 	# Sonido de motor
 
-func _running_state_process(delta : float) -> void:
-	position += Vector2.UP * SPEED
-
 func _turn_off() -> void:
 	# Sonido de llaves girando
 	anim_player.play("RESET")
+	
+func _running_state_process(delta : float) -> void:
+	position += Vector2.UP * SPEED
+
+
 
 
 func _on_stop_detection_area_entered(area: Area2D) -> void:
 	if area.is_in_group("VehicleStops"):
 		current_state = STATES.ON
+	_script_demo()
+		
+func _script_demo() -> void:
+	await get_tree().create_timer(2)
+	var guardia_hernan : RigidBody2D = soldier_scene.instantiate()
+	var guardia_juanfe : RigidBody2D = soldier_scene.instantiate()
+	
+	guardia_hernan.paraco_name = "Hernán"
+	guardia_hernan.add_to_group("Soldiers")
+	guardia_juanfe.paraco_name = "Juanfe"
+	guardia_juanfe.add_to_group("Soldiers")
+	
+	guardia_hernan.global_position = global_position + Vector2(-50, 0)
+	guardia_juanfe.global_position = global_position + Vector2(50, 0)
+	
+	get_tree().root.add_child(guardia_hernan)
+	await get_tree().create_timer(1).timeout
+	get_tree().root.add_child(guardia_juanfe)

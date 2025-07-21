@@ -27,6 +27,11 @@ SaveManager="*res://autoloads/save_manager.gd"
 editor/advanced/custom_test_scene_path="res://scenes/_debug/test_dialogue.tscn"
 runtime/balloon_path="res://scenes/menu/balloon.tscn"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [dotnet]
 
 project/assembly_name="ProyectoIngesoft"
@@ -35,11 +40,19 @@ project/assembly_name="ProyectoIngesoft"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "orange"
+}
+
 [global_group]
 
 Persist="Nodos cuya información es guardada a en la save"
 Player=""
 VehicleStops=""
+Soldiers=""
+navigation=""
 
 [input]
 
@@ -70,7 +83,7 @@ right_input={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://assets/dialogue/test.dialogue")
+locale/translations_pot_files=PackedStringArray("res://assets/dialogue/test.dialogue", "res://assets/dialogue/juanfe_dialogue_1.dialogue")
 
 [layer_names]
 

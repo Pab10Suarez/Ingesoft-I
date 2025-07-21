@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bg8c8dpyf36cy"
+path="res://.godot/imported/juanfe_dialogue_1.dialogue-23ee4f6e292fb85a55d63f4173c5103b.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/juanfe_dialogue_1.dialogue"
+dest_files=["res://.godot/imported/juanfe_dialogue_1.dialogue-23ee4f6e292fb85a55d63f4173c5103b.tres"]
+
+[params]
+
+defaults=true
