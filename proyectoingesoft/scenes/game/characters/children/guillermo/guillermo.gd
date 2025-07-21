@@ -147,13 +147,17 @@ func _on_free_roam_timer_timeout():
 	free_roam_timer.start(randf_range(2.0, 4.0))
 
 
-func _input(event: InputEvent):
-	# Usa una tecla diferente para las órdenes (ej. Control derecho)
+func _input(event: InputEvent) -> void:
+	# 1. Filtramos por el evento de clic
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		if Input.is_key_pressed(KEY_CTRL): # Cambiado a CTRL para Guillermo
-			var pos = get_global_mouse_position()
-			# Solo le damos la orden a Guillermo si este input es para él.
-			# Esto es solo un ejemplo, podrías necesitar un sistema de selección de personaje más complejo.
-			print("Orden recibida para Guillermo: ", pos)
-			ordenar_ir_a(pos)
+		
+		# 2. Comprobamos si la tecla de orden para GUILLERMO (Ctrl) está presionada
+		if Input.is_key_pressed(KEY_CTRL):
+			
+			# 3. Si es así, ejecutamos la orden y CONSUMIMOS el input
+			var posicion_del_clic = get_global_mouse_position()
+			print("Orden recibida para Guillermo: ", posicion_del_clic)
+			ordenar_ir_a(posicion_del_clic)
+			
+			# Esta línea es CLAVE: solo se ejecuta si la orden era para él
 			get_viewport().set_input_as_handled()

@@ -137,7 +137,7 @@ shape = SubResource("CapsuleShape2D_6ahoe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2kv4v")
-animation = &"walk_left"
+animation = &"walk right"
 
 [node name="DecisionTimer" type="Timer" parent="."]
 one_shot = true

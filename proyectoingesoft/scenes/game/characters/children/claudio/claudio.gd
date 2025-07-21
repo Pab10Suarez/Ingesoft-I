@@ -144,9 +144,16 @@ func _on_free_roam_timer_timeout():
 
 
 func _input(event: InputEvent) -> void:
-	# Usa una tecla diferente para no dar la orden a todos a la vez
+	# 1. Filtramos por el evento de clic
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		if Input.is_key_pressed(KEY_ALT): 
+		
+		# 2. Comprobamos si la tecla de orden para CLAUDIO (Alt) está presionada
+		if Input.is_key_pressed(KEY_ALT):
+			
+			# 3. Si es así, ejecutamos la orden y CONSUMIMOS el input
 			var posicion_del_clic = get_global_mouse_position()
+			print("Orden recibida para Claudio: ", posicion_del_clic)
 			ordenar_ir_a(posicion_del_clic)
+			
+			# Esta línea es CLAVE: solo se ejecuta si la orden era para él
 			get_viewport().set_input_as_handled()
