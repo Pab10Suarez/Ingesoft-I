@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Susana
 
 # --- Constantes ---
-const VELOCIDAD_CAMINAR := 40.0
-const DISTANCIA_MINIMA_DE_GERARDO := 40.0
+const VELOCIDAD_CAMINAR := 1
+const DISTANCIA_MINIMA_DE_GERARDO := 20.0
 const DISTANCIA_MAXIMA_FREE_ROAM := 200.0
 const DISTANCIA_MINIMA_OBJETIVO := 5.0
 
@@ -12,22 +12,23 @@ enum EstadoMovimiento { IDLE, FOLLOWING, FREE_ROAM, OBEYING, SCRIPT }
 static var estado_movimiento: EstadoMovimiento = EstadoMovimiento.SCRIPT
 
 # --- Variables de estado ---
-var posicion_objetivo: Vector2
+static var posicion_objetivo: Vector2
 
 # --- Referencias a Nodos ---
-@onready var player := get_tree().get_first_node_in_group("Player")
+var player : Gerardo
 static var sprite : AnimatedSprite2D
 @onready var free_roam_timer := $Timer
 @onready var decision_timer := $DecisionTimer
 @onready var path_follow := $Path2D/PathFollow2D
-
+@onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 
 func _ready() -> void:
 	sprite = $AnimatedSprite2D
 	
-	free_roam_timer.timeout.connect(_on_free_roam_timer_timeout)
-	decision_timer.timeout.connect(_on_decision_timer_timeout)
 	
+	#free_roam_timer.timeout.connect(_on_free_roam_timer_timeout)
+	decision_timer.timeout.connect(_on_decision_timer_timeout)
+	GameManager.susana_ref = self
 	#cambiar_estado_movimiento(EstadoMovimiento.FOLLOWING)
 
 
@@ -78,13 +79,16 @@ func hacer_nada():
 	velocity = Vector2.ZERO
 
 func seguir_a_gerardo():
-	if not player: velocity = Vector2.ZERO; return
-		
+	if not player: 
+		velocity = Vector2.ZERO 
+		return
+
+	nav_agent.target_position = player.global_position
 	var distancia = global_position.distance_to(player.global_position)
 	if distancia > DISTANCIA_MINIMA_DE_GERARDO:
 		decision_timer.stop()
-		var direccion = (player.global_position - global_position).normalized()
-		velocity = direccion * VELOCIDAD_CAMINAR
+		var direccion = (nav_agent.get_next_path_position() - global_position).normalized()
+		move_and_collide(direccion * VELOCIDAD_CAMINAR)
 	else:
 		if decision_timer.is_stopped():
 			decision_timer.start(5.0)
@@ -101,8 +105,11 @@ func moverse_en_free_roam():
 		velocity = Vector2.ZERO
 
 func obedecer_orden():
-	var direccion = (posicion_objetivo - global_position).normalized()
-	velocity = direccion * VELOCIDAD_CAMINAR
+	var direction = Vector2()
+	direction = nav_agent.get_next_path_position() - global_position
+	direction = direction.normalized() * VELOCIDAD_CAMINAR
+	move_and_collide(direction)
+
 	if global_position.distance_to(posicion_objetivo) < DISTANCIA_MINIMA_OBJETIVO:
 		cambiar_estado_movimiento(EstadoMovimiento.IDLE)
 
@@ -128,7 +135,8 @@ func cambiar_estado_movimiento(nuevo_estado: EstadoMovimiento) -> void:
 		path_follow.progress = 0
 
 func ordenar_ir_a(punto: Vector2):
-	posicion_objetivo = punto
+	#posicion_objetivo = punto
+	nav_agent.target_position = punto
 	cambiar_estado_movimiento(EstadoMovimiento.OBEYING)
 
 func _on_decision_timer_timeout():

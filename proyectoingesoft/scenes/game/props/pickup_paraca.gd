@@ -25,6 +25,7 @@ static var anim_player : AnimationPlayer
 func _ready() -> void:
 	#current_state = STATES.RUNNING
 	anim_player = $AnimationPlayer
+	GameManager.ref_pickup = self
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -38,7 +39,7 @@ static func _turn_on() -> void:
 
 static func start_march() -> void:
 	#current_state = STATES.RUNNING
-	print(current_state)
+	pass
 
 static func _turn_off() -> void:
 	# Sonido de llaves girando

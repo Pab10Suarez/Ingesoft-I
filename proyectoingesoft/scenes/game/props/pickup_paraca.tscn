@@ -62,7 +62,7 @@ use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 1)
 
-[node name="PickupParaca" type="AnimatableBody2D" groups=["Soldiers"]]
+[node name="PickupParaca" type="AnimatableBody2D"]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_4rp4p")

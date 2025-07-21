@@ -14,7 +14,7 @@ func _ready() -> void:
 	
 func _script_intro() -> void:		# Primer script en ejecutarse
 	await get_tree().create_timer(2).timeout
-	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/cast_in_car.dialogue"), "Part1")
+	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/cast_dialogues.dialogue"), "Part1")
 	await DialogueManager.dialogue_ended
 	
 	_fail_to_turn_on()
@@ -25,9 +25,13 @@ func _script_intro() -> void:		# Primer script en ejecutarse
 		await get_tree().process_frame
 	_rest()
 	
-	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/cast_in_car.dialogue"), "Part2")
+	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/cast_dialogues.dialogue"), "Part2")
 	await DialogueManager.dialogue_ended
+	
 	_eject_characters()
+	await get_tree().create_timer(2).timeout
+	
+	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/cast_dialogues.dialogue"), "Part3")
 
 func _fail_to_turn_on() -> void:
 	anim_player.play("vibrate")
@@ -43,6 +47,7 @@ func _eject_characters() -> void:
 	gerardo.global_position = global_position + Vector2(-50, 30)
 	guillermo.global_position = global_position + Vector2(-50, 60)
 	
-	get_tree().root.add_child(gerardo)
 	get_tree().root.add_child(guillermo)
+	get_tree().root.add_child(gerardo)
+	
 	

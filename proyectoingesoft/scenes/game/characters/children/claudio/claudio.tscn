@@ -14,18 +14,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aifkk"]
 size = Vector2(11, 4)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2fxef"]
-atlas = ExtResource("2_aifkk")
-region = Rect2(26, 126, 26, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ge56u"]
-atlas = ExtResource("2_aifkk")
-region = Rect2(0, 126, 26, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jmvnc"]
-atlas = ExtResource("2_aifkk")
-region = Rect2(52, 126, 26, 42)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_daj7u"]
 atlas = ExtResource("2_aifkk")
 region = Rect2(26, 0, 26, 42)
@@ -50,6 +38,18 @@ region = Rect2(0, 84, 26, 42)
 atlas = ExtResource("2_aifkk")
 region = Rect2(52, 84, 26, 42)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fxef"]
+atlas = ExtResource("2_aifkk")
+region = Rect2(26, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge56u"]
+atlas = ExtResource("2_aifkk")
+region = Rect2(0, 126, 26, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmvnc"]
+atlas = ExtResource("2_aifkk")
+region = Rect2(52, 126, 26, 42)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fck63"]
 atlas = ExtResource("2_aifkk")
 region = Rect2(26, 42, 26, 42)
@@ -64,20 +64,6 @@ region = Rect2(52, 42, 26, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2kv4v"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2fxef")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ge56u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jmvnc")
-}],
-"loop": true,
-"name": &"walk right",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_daj7u")
@@ -108,6 +94,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2fxef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge56u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmvnc")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fck63")
 }, {
 "duration": 1.0,
@@ -124,6 +124,9 @@ animations = [{
 [sub_resource type="Curve2D" id="Curve2D_2vxde"]
 
 [node name="Claudio" type="CharacterBody2D" groups=["CastChildren"]]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 2
 script = ExtResource("1_aifkk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -138,7 +141,7 @@ shape = SubResource("RectangleShape2D_aifkk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_2kv4v")
-animation = &"walk_up"
+animation = &"walk_right"
 
 [node name="DecisionTimer" type="Timer" parent="."]
 one_shot = true
@@ -149,3 +152,5 @@ curve = SubResource("Curve2D_2vxde")
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

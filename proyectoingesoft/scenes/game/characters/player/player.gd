@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Gerardo
 
 const SPEED = 50
 
@@ -27,6 +28,7 @@ var textura_huella_generada: Texture2D
 # Nodos
 @onready var camera : Camera2D = $Camera2D
 
+# Señales
 
 # La función _ready() se ejecuta una vez al inicio.
 func _ready():
@@ -41,7 +43,7 @@ func _ready():
 	
 	textura_huella_generada = _crear_textura_huella()
 	camera.make_current()
-
+	GameManager.gerardo_enters_scene(self)
 
 # La función _physics_process(delta) se ejecuta en cada fotograma.
 func _physics_process(delta):
@@ -193,7 +195,7 @@ func reset_state():
 
 # Puedes usar _input para pruebas rápidas
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("tool_on_hand"):
 		if state == PlayerState.NORMAL:
 			pickup_flashlight()
 		else:

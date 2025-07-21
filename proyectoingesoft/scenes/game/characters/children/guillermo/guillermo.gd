@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Guillermo
 
 # --- Constantes (Personalidad de Guillermo: lento y tímido) ---
-const VELOCIDAD_CAMINAR := 30.0
+const VELOCIDAD_CAMINAR := 0.7
 const DISTANCIA_MINIMA_DE_GERARDO := 30.0
 const DISTANCIA_MAXIMA_FREE_ROAM := 150.0
 const DISTANCIA_MINIMA_OBJETIVO := 5.0
@@ -15,17 +15,19 @@ var estado_movimiento: EstadoMovimiento = EstadoMovimiento.IDLE
 var posicion_objetivo: Vector2
 
 # --- Referencias a nodos ---
-@onready var player := get_tree().get_first_node_in_group("Player")
+var player : Gerardo
 @onready var sprite := $AnimatedSprite2D
 @onready var free_roam_timer := $Timer
 @onready var decision_timer := $DecisionTimer
 @onready var path_follow := $Path2D/PathFollow2D
+@onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 
 
 func _ready():
-	free_roam_timer.timeout.connect(_on_free_roam_timer_timeout)
+	#free_roam_timer.timeout.connect(_on_free_roam_timer_timeout)
 	decision_timer.timeout.connect(_on_decision_timer_timeout)
 	cambiar_estado_movimiento(EstadoMovimiento.FOLLOWING)
+	GameManager.guillermo_ref = self
 
 
 func _physics_process(delta: float) -> void:
@@ -73,17 +75,19 @@ func actualizar_animacion():
 # --- Lógica de movimiento ---
 
 func seguir_a_gerardo():
-	if not player: velocity = Vector2.ZERO; return
-	
+	if not player: 
+		velocity = Vector2.ZERO 
+		#print("alerta!!! no se puede seguir a gerardo jojojojoj")
+		return
+	nav_agent.target_position = player.global_position
 	var distancia = global_position.distance_to(player.global_position)
 	if distancia > DISTANCIA_MINIMA_DE_GERARDO:
 		decision_timer.stop()
-		var direccion = (player.global_position - global_position).normalized()
-		velocity = direccion * VELOCIDAD_CAMINAR
+		var direccion = (nav_agent.get_next_path_position() - global_position).normalized()
+		move_and_collide(direccion * VELOCIDAD_CAMINAR)
 	else:
 		if decision_timer.is_stopped():
-			# Tarda un poco más en aburrirse porque es más tranquilo
-			decision_timer.start(6.0) 
+			decision_timer.start(5.0)
 		velocity = Vector2.ZERO
 
 
@@ -100,8 +104,11 @@ func moverse_en_free_roam():
 
 
 func obedecer_orden():
-	var direccion = (posicion_objetivo - global_position).normalized()
-	velocity = direccion * VELOCIDAD_CAMINAR
+	var direction = Vector2()
+	direction = nav_agent.get_next_path_position() - global_position
+	direction = direction.normalized() * VELOCIDAD_CAMINAR
+	move_and_collide(direction)
+
 	if global_position.distance_to(posicion_objetivo) < DISTANCIA_MINIMA_OBJETIVO:
 		cambiar_estado_movimiento(EstadoMovimiento.IDLE)
 
@@ -130,7 +137,8 @@ func cambiar_estado_movimiento(nuevo_estado: EstadoMovimiento) -> void:
 
 
 func ordenar_ir_a(punto: Vector2):
-	posicion_objetivo = punto
+	#posicion_objetivo = punto
+	nav_agent.target_position = punto
 	cambiar_estado_movimiento(EstadoMovimiento.OBEYING)
 
 
@@ -153,7 +161,7 @@ func _input(event: InputEvent) -> void:
 		
 		# 2. Comprobamos si la tecla de orden para GUILLERMO (Ctrl) está presionada
 		if Input.is_key_pressed(KEY_CTRL):
-			
+
 			# 3. Si es así, ejecutamos la orden y CONSUMIMOS el input
 			var posicion_del_clic = get_global_mouse_position()
 			print("Orden recibida para Guillermo: ", posicion_del_clic)

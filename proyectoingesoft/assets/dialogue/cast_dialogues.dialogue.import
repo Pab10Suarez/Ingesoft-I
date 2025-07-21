@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://di7v3en4lsx4k"
+path="res://.godot/imported/cast_dialogues.dialogue-c961a9d3389b60057d4fe99120fc72ad.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/cast_dialogues.dialogue"
+dest_files=["res://.godot/imported/cast_dialogues.dialogue-c961a9d3389b60057d4fe99120fc72ad.tres"]
+
+[params]
+
+defaults=true

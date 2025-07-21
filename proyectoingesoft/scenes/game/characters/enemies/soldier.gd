@@ -67,7 +67,6 @@ func _assign_script() -> void:
 func _script_juanfe() -> void:
 	nav_agent.target_position = get_tree().get_first_node_in_group("Soldiers").global_position + Vector2(-50, -40) # Hernán es el primero
 	await nav_agent.navigation_finished
-	print("reached")
 	DialogueManager.show_dialogue_balloon(load("res://assets/dialogue/juanfe_dialogue_1.dialogue"))
 	
 func _script_hernan() -> void:

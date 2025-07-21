@@ -9,13 +9,13 @@ const DISTANCIA_MINIMA_OBJETIVO := 5.0
 
 # --- Estados ---
 enum EstadoMovimiento { IDLE, FOLLOWING, FREE_ROAM, OBEYING, SCRIPT }
-var estado_movimiento: EstadoMovimiento = EstadoMovimiento.SCRIPT
+static var estado_movimiento: EstadoMovimiento = EstadoMovimiento.SCRIPT
 
 # --- Variables de estado ---
 var posicion_objetivo: Vector2
 
 # --- Referencias a Nodos ---
-@onready var player := get_tree().get_first_node_in_group("Player")
+var player : Gerardo
 static var sprite : AnimatedSprite2D
 @onready var free_roam_timer := $Timer
 @onready var decision_timer := $DecisionTimer
@@ -24,7 +24,7 @@ static var sprite : AnimatedSprite2D
 
 func _ready() -> void:
 	sprite = $AnimatedSprite2D
-	free_roam_timer.timeout.connect(_on_free_roam_timer_timeout)
+	#free_roam_timer.timeout.connect(_on_free_roam_timer_timeout)
 	decision_timer.timeout.connect(_on_decision_timer_timeout)
 	#cambiar_estado_movimiento(EstadoMovimiento.FOLLOWING)
 
@@ -159,7 +159,7 @@ func _input(event: InputEvent) -> void:
 			# Esta línea es CLAVE: solo se ejecuta si la orden era para él
 			get_viewport().set_input_as_handled()
 
-static func loop_walk_up() -> void:
+func loop_walk_up() -> void:
 	sprite.play("walk_up")
 	
 static func stop_animation() -> void:

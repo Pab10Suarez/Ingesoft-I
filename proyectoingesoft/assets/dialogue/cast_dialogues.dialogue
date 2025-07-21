@@ -1,0 +1,36 @@
+import 
+
+~ Part1
+Gerardo: ¡A las tres! ¿Listos?
+Gerardo: [#mood=alterado] Uno... [next=1]
+Gerardo: [#mood=alterado] Dos... [next=1]
+Gerardo: [#mood=alterado] ¡Tres! [do Susana.loop_walk_up()] [next=1]
+
+=> END
+
+~ Part2
+[do Susana.stop_animation()] [next=0.1]
+Gerardo: [#mood=alterado] ¡Vida hijueputa!
+Susana: ... [next=1]
+Guillermo: ... [next=1]
+=> END
+
+~ Part3
+set ParacoMovil.current_state = ParacoMovil.STATES.RUNNING 
+Gerardo: [#mood=alterado] Chito, viene un carro, ¡Vengan! [do GameManager.transition_children_to_following_state()]
+=> END
+
+~ SusanaApagaCarro
+Gerardo: Susana, escúchame bien... Yo sé que estás asustada.
+Gerardo: Pero [pulse]tú[/pulse] eres la hermana mayor...
+Gerardo: Necesito que hagas algo por nosotros, sí?.
+Gerardo: Vas a tener que correr hasta el carro que está parqueado allá.
+Gerardo: No pasa nada... van a estar mirando para otro lado.
+Gerardo: Cuando llegues vas a girar la llave que está debajo del manubrio y te la guardas en el bolsillo.
+Gerardo: Se van a asustar, sal corriendo y estate pendiente de mi linterna.
+Gerardo: Ahí es donde estaremos. [do GameManager.send_kid_to_turn_off_truck(GameManager.Children.SUSANA)]
+=> END
+
+~ GuillermoApagaCarro
+=> END
+
